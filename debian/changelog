@@ -1,8 +1,8 @@
-neutron (2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu1) UNRELEASED; urgency=medium
+neutron (2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu2) unstable; urgency=medium
 
-  * Testing debian package for our code
+  * Tested debian package for our code.Removed testing. Keeping only common, server code
 
- -- Harsh Desai <hmdesai89@gmail.com>  Tue, 19 Jul 2016 12:38:41 +0530
+ -- Harsh Desai <hmdesai89@gmail.com>  Tue, 19 Jul 2016 14:46:51 +0530
 
 neutron (2015.1.0+2015.06.24.git61.bdf194a0e1-4) unstable; urgency=medium
 

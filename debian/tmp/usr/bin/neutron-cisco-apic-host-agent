@@ -1,0 +1,10 @@
+#!/usr/bin/python2.7
+# PBR Generated from u'console_scripts'
+
+import sys
+
+from neutron.plugins.ml2.drivers.cisco.apic.apic_topology import agent_main
+
+
+if __name__ == "__main__":
+    sys.exit(agent_main())

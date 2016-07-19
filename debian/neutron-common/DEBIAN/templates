@@ -1,0 +1,593 @@
+
+Template: neutron/auth-host
+Type: string
+Default: 127.0.0.1
+Description: Authentication server hostname:
+ Please specify the hostname of your Neutron authentication server. Typically
+ this is also the hostname of your OpenStack Identity Service (Keystone).
+Description-da.UTF-8: Værtsnavn for godkendelsesserver:
+ Angiv venligst værtsnavnet for din Neutron-godkendelseserver. Dette er typisk også værtsnavnet for din OpenStack Identity Service (Keystone).
+Description-de.UTF-8: Rechnername des Authentifizierungsservers:
+ Bitte geben Sie den Rechnernamen Ihres Neutron-Authentifizierungsservers an. Typischerweise ist das gleichzeitig der Rechnername Ihres OpenStack-Identitätsdienstes (Keystone).
+Description-es.UTF-8: Nombre del equipo del servidor de autenticación:
+ Especifique el nombre del equipo del servidor de autenticación de Neutron. Suele ser el nombre del equipo del Servicio de Identidad de OpenStack (Keystone).
+Description-fr.UTF-8: Nom d'hôte du serveur d'authentification :
+ Veuillez indiquer le nom d'hôte du serveur d'authentification Neutron. En général, il s'agit du nom d'hôte du Service d'Identité OpenStack (Keystone).
+Description-it.UTF-8: Nome host del server di autenticazione:
+ Specificare il nome host del server di autenticazione Neutron. Tipicamente, è anche il nome host dell'OpenStack Identity Service (Keystone).
+Description-nl.UTF-8: Computernaam van de authenticatieserver:
+ Vermeld de computernaam van uw authenticatieserver voor Neutron. Meestal is dit ook de computernaam van de OpenStack identiteitsdienst (Keystone).
+Description-pt.UTF-8: Nome de máquina do servidor de autenticação:
+ Por favor especifique o nome de máquina do servidor de autenticação Neutron. Tipicamente este é também o nome de máquina do Serviço de Identidade OpenStack (Keystone).
+Description-ru.UTF-8: Имя узла сервера аутентификации:
+ Введите имя узла сервера аутентификации Neutron. Данное имя обычно совпадает с OpenStack Identity Service (Keystone).
+Description-sv.UTF-8: Värdnamn för identifieringsserver:
+ Ange värdnamn till din Neutron-identifieringsserver. Detta är vanligtvis samma värdnamn som till din OpenStack-identitetstjänst (Keystone).
+
+Template: neutron/admin-tenant-name
+Type: string
+Default: admin
+Description: Authentication server tenant name:
+ Please specify the authentication server tenant name.
+Description-da.UTF-8: Navn »tenant« (administrator) på godkendelsesserveren:
+ Angiv venligst »tenant«-navn for godkendelsesserveren. (»Tenant« kan delvist oversættes til administrator).
+Description-de.UTF-8: Tenant-Name des Authentifizierungsservers:
+ Bitte geben Sie den Tenant-Namen des Authentifizierungsservers an.
+Description-es.UTF-8: Nombre del inquilino («tenant») del servidor de autenticación:
+ Indique el nombre del inquilino («tenant») del servidor de autenticación.
+Description-fr.UTF-8: Nom d'espace client du serveur d'authentification :
+ Veuillez indiquer le nom d'espace client du serveur d'authentification.
+Description-it.UTF-8: Nome del «locatario» («tenant») per il server di autenticazione:
+ Specificare il nome del «locatario» («tenant») per il server di autenticazione.
+Description-nl.UTF-8: Naam van de clientruimte (tenant) op de authenticatieserver:
+ Geef de naam op van de clientruimte (tenant) op de authenticatieserver.
+Description-pt.UTF-8: Nome "tenant" do servidor de autenticação:
+ Por favor especifique o nome "tenant" do servidor de autenticação.
+Description-ru.UTF-8: Членское имя сервера аутентификации:
+ Укажите членское имя сервера аутентификации.
+Description-sv.UTF-8: Namn för "tenant" (administratör) på identifieringsservern:
+ Ange "tenant"-namn för identifieringsservern. ("Tenant" är ungefär översättningsbart till "administratör").
+
+Template: neutron/admin-user
+Type: string
+Default: admin
+Description: Authentication server username:
+ Please specify the username to use with the authentication server.
+Description-da.UTF-8: Brugernavn for godkendelsesserveren:
+ Angiv venligst brugernavnet der skal bruges med godkendelsesserveren.
+Description-de.UTF-8: Benutzername des Authentifizierungsservers:
+ Bitte geben Sie den Benutzernamen an, der für den Authentifizierungsserver benutzt wird.
+Description-es.UTF-8: Nombre de usuario del servidor de autenticación:
+ Indique el nombre de usuario para usar con el servidor de autenticación.
+Description-fr.UTF-8: Identifiant sur le serveur d'authentification :
+ Veuillez indiquer l'identifiant à utiliser sur le serveur d'authentification.
+Description-it.UTF-8: Nome utente per il server di autenticazione:
+ Specificare il nome utente da usare con il server di autenticazione.
+Description-nl.UTF-8: Gebruikersnaam op de authenticatieserver:
+ Vermeld de gebruikersnaam die op de authenticatieserver gebruikt zal worden.
+Description-pt.UTF-8: Nome de utilizador do servidor de autenticação:
+ Por favor especifique o nome de utilizador a usar com o servidor de autenticação.
+Description-ru.UTF-8: Имя пользователя для сервера аутентификации:
+ Введите имя пользователя для работы с сервером аутентификации.
+Description-sv.UTF-8: Användarnamn på identifieringsservern:
+ Ange användarnamnet som ska användas för att komma åt identifieringsservern.
+
+Template: neutron/admin-password
+Type: password
+Description: Authentication server password:
+ Please specify the password to use with the authentication server.
+Description-da.UTF-8: Adgangskode for godkendelsesserveren:
+ Angiv venligst adgangskoden for brug med godkendelsesserveren.
+Description-de.UTF-8: Passwort des Authentifizierungsservers:
+ Bitte geben Sie das Passwort an, das für den Authentifizierungsserver benutzt wird.
+Description-es.UTF-8: Contraseña del servidor de autenticación:
+ Indique la contraseña para usar con el servidor de autenticación.
+Description-fr.UTF-8: Mot de passe sur le serveur d'authentification :
+ Veuillez indiquer le mot de passe à utiliser sur le serveur d'authentification.
+Description-it.UTF-8: Password per il server di autenticazione:
+ Specificare la password da usare con il server di autenticazione.
+Description-nl.UTF-8: Wachtwoord op de authenticatieserver:
+ Vermeld het wachtwoord dat op de authenticatieserver gebruikt zal worden.
+Description-pt.UTF-8: Palavra passe do servidor de autenticação:
+ Por favor especifique a palavra passe a usar com o servidor de autenticação.
+Description-ru.UTF-8: Пароль для сервера аутентификации:
+ Введите пароль для работы с сервером аутентификации.
+Description-sv.UTF-8: Lösenord på identifieringsservern:
+ Ange lösenordet som ska användas för att komma åt identifieringsservern.
+
+Template: neutron/plugin-select
+Type: select
+Choices: OpenVSwitch, LinuxBridge, ml2, Brocade, Nicira, Midonet, NEC, Mellanox, Hyper-V, RYU, MetaPlugin, BigSwitch, Cisco, PLUMgrid
+Choices-da.UTF-8: OpenVSwitch, LinuxBridge, ml2, Brocade, Nicira, Midonet, NEC, Mellanox, Hyper-V, RYU, MetaPlugin, BigSwitch, Cisco, PLUMgrid
+Choices-de.UTF-8: OpenVSwitch, LinuxBridge, ml2, Brocade, Nicira, Midonet, NEC, Mellanox, Hyper-V, RYU, MetaPlugin, BigSwitch, Cisco, PLUMgrid
+Choices-es.UTF-8: OpenVSwitch, LinuxBridge, ml2, Brocade, Nicira, Midonet, NEC, Mellanox, Hyper-V, RYU, MetaPlugin, BigSwitch, Cisco, PLUMgrid
+Choices-fr.UTF-8: OpenVSwitch, LinuxBridge, ml2, Brocade, Nicira, Midonet, NEC, Mellanox, Hyper-V, RYU, MetaPlugin, BigSwitch, Cisco, PLUMgrid
+Choices-it.UTF-8: OpenVSwitch, LinuxBridge, ml2, Brocade, Nicira, Midonet, NEC, Mellanox, Hyper-V, RYU, MetaPlugin, BigSwitch, Cisco, PLUMgrid
+Choices-nl.UTF-8: OpenVSwitch, LinuxBridge, ml2, Brocade, Nicira, Midonet, NEC, Mellanox, Hyper-V, RYU, MetaPlugin, BigSwitch, Cisco, PLUMgrid
+Choices-pt.UTF-8: OpenVSwitch, LinuxBridge, ml2, Brocade, Nicira, Midonet, NEC, Mellanox, Hyper-V, RYU, MetaPlugin, BigSwitch, Cisco, PLUMgrid
+Choices-ru.UTF-8: OpenVSwitch, LinuxBridge, ml2, Brocade, Nicira, Midonet, NEC, Mellanox, Hyper-V, RYU, MetaPlugin, BigSwitch, Cisco, PLUMgrid
+Choices-sv.UTF-8: OpenVSwitch, LinuxBridge, ml2, Brocade, Nicira, Midonet, NEC, Mellanox, Hyper-V, RYU, MetaPlugin, BigSwitch, Cisco, PLUMgrid
+Choices-C: OpenVSwitch, LinuxBridge, ml2, Brocade, Nicira, Midonet, NEC, Mellanox, Hyper-V, RYU, MetaPlugin, BigSwitch, Cisco, PLUMgrid
+Default: ml2
+Description: Neutron plugin:
+ Neutron uses a plugin architecture to manage networking. When starting the
+ Neutron server daemon, the configuration file corresponding to the plugin you
+ wish to use needs to be loaded, by giving it as a parameter when starting the
+ neutron-server daemon. Also, the core_plugin directive needs to match. Please
+ select which plugin to use.
+Description-da.UTF-8: Neutron-instick:
+ Neutron anvender en arkitektur med udvidelsesmoduler til at håndtere netværk. Når du starter Neutrons serverdæmon, skal konfigurationsfilen, der svarer til udvidelsesmodulet, du ønsker at bruge, indlæses ved at give det en parameter når neturon-server-dæmonen startes. Direktivet core_plugin skal også matche. Vælg venligst hvilket udvidelsesmodul du ønsker at bruge.
+Description-de.UTF-8: Neutron-Zusatzmodul:
+ Neutron verwendet eine Architektur aus Zusatzmodulen, um den Netzwerkzugriff zu verwalten. Wenn der Neutron-Server-Daemon startet, muss die Konfigurationsdatei, die zum Zusatzmodul gehört, geladen werden, indem sie dem Neutron-Server-Daemon beim Start als Parameter mitgegeben wird. Ebenso muss die Direktive »core_plugin« passen. Bitte wählen Sie das Zusatzmodul, das verwendet werden soll.
+Description-es.UTF-8: Complemento para Neutron:
+ Neutron utiliza una arquitectura de complementos para gestionar la red. Cuando se inicia el demonio del servidor Neutron es necesario cargar el archivo correspondiente del complemento que desea utilizar pasándolo como parámetro al iniciar el demonio neutron-server. También es necesario que se corresponda con la directiva core_plugin. Seleccione el complemento que desea utilizar.
+Description-fr.UTF-8: Extension pour Neutron :
+ Neutron utilise une architecture à base d'extensions pour gérer la mise en réseau. Lors du démarrage du démon du serveur Neutron, le fichier de configuration, correspondant à l'extension que vous souhaitez utiliser, doit être chargé en le passant comme paramètre lors du lancement du démon du serveur Neutron. Il faut également que l'instruction « core_plugin » corresponde. Veuillez choisir l'extension à utiliser.
+Description-it.UTF-8: Plugin Neutron:
+ Neutron usa un'architettura a plugin per gestire la rete. Quando si avvia il demone del server Neutron, il file di configurazione corrispondente al plugin che si desidera usare deve essere caricato fornendolo come parametro all'avvio del demone neutron-server. Inoltre la direttiva core_plugin deve corrispondere. Selezionare quale plugin usare.
+Description-nl.UTF-8: Invoegtoepassing voor Neutron:
+ Neutron gebruikt een architectuur met invoegtoepassingen om de netwerkinrichting te beheren. Wanneer de Neutronserver-achtergronddienst opgestart wordt, moet het instellingenbestand van de invoegtoepassing die u wenst te gebruiken, ingeladen worden. Dit gebeurt door het als parameter te gebruiken van het commando dat de neutronserver-achtergronddienst opstart. Ook de instructie core_plugin moet hiermee overeenstemmen. Selecteer de te gebruiken invoegtoepassing.
+Description-pt.UTF-8: Plugin do Neutron:
+ Neutron usa uma arquitectura de plugins para gerir a rede. Quando o daemon do servidor Neutron arranca, o ficheiro de configuração que corresponde ao plugin que deseja usar precisa de ser carregado, ao fornecê-lo como um parâmetro quando se arranca o daemon neutron-server. Também, a directiva core_plugin precisa de corresponder. Por favor seleccione o plugin a usar.
+Description-ru.UTF-8: Модуль Neutron:
+ В Neutron для управления сетью используется модульная архитектура. При запуске службы сервера neutron-server параметром задаётся соответствующий файл настройки модуля. Также, это значение должно совпадать с директивой core_plugin. Выберите, какой модуль нужно использовать.
+Description-sv.UTF-8: Neutron-instick:
+ Neutron använder en arkitektur med instick ("plugin") för att hantera nätverk. När Neutrons servertjänst startar kommer inställningsfilen för det instick du valt att läsas in, genom att ange insticket som en parameter till tjänsten neutron-server. Direktivet core_plugin behöver också stämma överrens. Ange vilket instick som ska användas.
+
+Template: neutron/configure_db
+Type: boolean 
+Default: false
+Description: Set up a database for Neutron?
+ No database has been set up for Neutron to use. Before continuing, you should
+ make sure you have the following information:
+ .
+  * the type of database that you want to use;
+  * the database server hostname (that server must allow TCP connections from this
+    machine);
+  * a username and password to access the database.
+ .
+ If some of these requirements are missing, do not choose this option and run with
+ regular SQLite support.
+ .
+ You can change this setting later on by running "dpkg-reconfigure -plow
+ neutron".
+Description-da.UTF-8: Opsæt en database for Neutron?
+ Ingen database er blevet opsat for Neutron. Før du fortsætter skal du sikre dig, at du har den følgende information:
+ .
+  * databasetypen du ønsker at bruge
+  * serverens værtsnavn (den server skal tillade TCP-forbindelser fra denne
+    maskine)
+  * et brugernavn og adgangskode til at tilgå databasen..
+ .
+ Hvis nogle af disse krav mangler, så vælg ikke denne indstilling og fortsæt med normal SQLite-understøttelse.
+ .
+ Du kan ændre denne indstilling senere ved at køre »dpkg-reconfigure -plow neutron«.
+Description-de.UTF-8: Datenbank für Neutron einrichten?
+ Für die Benutzung durch Neutron wurde keine Datenbank eingerichtet. Bevor Sie fortfahren, sollten Sie sich versichern, dass Sie die folgenden Informationen haben:
+ .
+  * den Typ der Datenbank, die Sie verwenden möchten,
+  * den Rechnernamen des Datenbankservers (dieser Server muss TCP-Verbindungen
+    von diesem Rechner erlauben),
+  * einen Benutzernamen und ein Passwort, um auf die Datenbank zuzugreifen
+ .
+ Falls einige dieser Anforderungen nicht erfüllt sind, wählen Sie diese Option nicht und verwenden Sie stattdessen die normale Sqlite-Unterstützung.
+ .
+ Sie können diese Einstellung später ändern, indem Sie »dpkg-reconfigure -plow neutron« ausführen.
+Description-es.UTF-8: ¿Desea configurar una base de datos para Neutron?
+ No se ha configurado ninguna base de datos para Neutron. Antes de continuar debe asegurarse de que dispone de los siguientes datos:
+ .
+  * el tipo de base de datos que quiere utilizar;
+  * el nombre del equipo del servidor de la base de datos (el servidor debe permitir conexiones TCP desde este equipo).
+  * el nombre de usuario y la contraseña para acceder a la base de datos.
+ .
+ Si no dispone de alguno de estos datos, seleccione «no» en este apartado y ejecute Neutron con SQLlite.
+ .
+ Podrá cambiar esta configuración más adelante ejecutando «dpkg-reconfigure -plow neutron».
+Description-fr.UTF-8: Faut-il paramétrer une base de données pour Neutron ?
+ Aucune base de données n'a été paramétrée pour Neutron. Avant de poursuivre, vous devriez vous assurer d'avoir les informations suivantes :
+ .
+  - Le type de base de données que vous souhaitez utiliser ;
+  - le nom d'hôte du serveur de base de données (ce serveur
+    doit accepter les connexions TCP depuis cette machine) ;
+  - un nom d'utilisateur et un mot de passe pour accéder à
+    cette base de données.     
+ .
+ Si certains de ces prérequis sont manquants, ignorez cette option et exécutez l'application avec la gestion SQLite normale.
+ .
+ Vous pouvez modifier ce réglage plus tard en lançant « dpkg-reconfigure -plow neutron ».
+Description-it.UTF-8: Impostare un database per Neutron?
+ Non è stato impostato alcun database per essere usato da Neutron. Prima di continuare assicurarsi di avere le seguenti informazioni:
+ .
+  * il tipo di database che si desidera usare;
+  * il nome host del server di database (che deve permettere le connessioni
+    TCP da questa macchina);
+  * un nome utente e una password per accedere al database.
+ .
+ Se non si ha uno o più di questi requisiti, non scegliere questa opzione ed eseguire con il regolare supporto per SQLite.
+ .
+ È possibile cambiare questa impostazione successivamente eseguendo «dpkg-reconfigure -plow neutron».
+Description-nl.UTF-8: Een database opzetten voor Neutron?
+ Er is geen enkele database geïnstalleerd voor Neutron. Zorg er voor dat u de volgende informatie bij de hand heeft vooraleer verder te gaan:
+ .
+  * het soort database dat u wilt gebruiken;
+  * de computernaam van de databaseserver (die server moet
+    TCP-verbindingen vanaf deze computer toestaan);
+  * een gebruikersnaam en een wachtwoord om toegang te krijgen tot de database.
+ .
+ Indien niet aan alle vereisten voldaan is, zou u deze optie niet moeten kiezen en gebruik moeten maken van de reguliere SQLite-ondersteuning.
+ .
+ U kunt deze instelling later wijzigen met het commando "dpkg-reconfigure -plow neutron".
+Description-pt.UTF-8: Configurar uma base de dados para o Neutron?
+ Nenhuma base de dados foi configurada para o Neutron usar. Antes de continuar, você deve certificar-se que tem a seguinte informação:
+ .
+  * o tipo de base de dados que deseja usar;
+  * o nome de máquina do servidor da base de dados (esse servidor deve permitir ligações TCP a partir desta
+    máquina);
+  * um nome de utilizador e palavra passe para aceder à base de dados.
+ .
+ Se alguns destes requerimentos estão em falta, não escolha esta opção e corra com o suporte SQLite regular.
+ .
+ Você pode modificar estas definições mais tarde ao correr "dpkg-reconfigure -plow neutron".
+Description-ru.UTF-8: Настроить базу данных для Neutron?
+ Для использования Neutron требуется настроить базу данных. Если вы хотите сделать это сейчас, то проверьте, что у вас есть вся необходимая информация:
+ .
+  * тип базы данных, который хотите использовать;
+  * имя узла сервера базы данных (этот сервер должен принимать
+    TCP-соединения с этой машины);
+  * имя пользователя и пароль для доступа к базе данных.
+ .
+ Если не хватает хотя бы одного параметра, ответьте отрицательно и включите поддержку SQLite.
+ .
+ Позднее, вы можете изменить эту настройку, запустив «dpkg-reconfigure -plow neutron».
+Description-sv.UTF-8: Ska en databas installeras för Neutron?
+ Ingen databas har installerats för Neutron. Innan du fortsätter behöver följande finnas tillgängligt:
+ .
+  * vilken databastyp du vill använda.
+  * serverns värdnamn (som måste kunna ta emot TCP-anslutningar
+    från den här maskinen)
+  * användarnamn och lösenord för att komma åt databasen.
+ .
+ Om något av dessa krav saknar bör du avböja detta alternativ och fortsätta använda SQLite-stödet.
+ .
+ Denna inställning kan ändras senare genom att köra "dpkg-reconfigure -plow neutron".
+
+Template: neutron/rabbit_host
+Type: string
+Default: localhost
+Description: IP address of your RabbitMQ host:
+ In order to interoperate with other components of OpenStack, this package
+ needs to connect to a central RabbitMQ server.
+ .
+ Please specify the IP address of that server.
+Description-da.UTF-8: IP-adresse for din RabbitMQ-vært:
+ For at fungere med andre komponenter fra OpenStack, skal denne pakke forbinde til en central RabbitMQ-server.
+ .
+ Angiv venligst IP-adressen for den server.
+Description-de.UTF-8: IP-Adresse Ihres RabbitMQ-Rechners:
+ Um mit weiteren Bestandteilen von OpenStack zusammenzuarbeiten, muss sich dieses Paket mit einem zentralen RabbitMQ-Server verbinden.
+ .
+ Bitte geben Sie die IP-Adresse dieses Servers an.
+Description-es.UTF-8: Dirección IP del equipo RabbitMQ:
+ Para poder interoperar con otros componentes de OpenStack, este paquete necesita conectarse a un servidor central de RabbitMQ.
+ .
+ Especifique la dirección IP de ese servidor.
+Description-fr.UTF-8: Adresse IP de l'hôte RabbitMQ :
+ Afin de pouvoir interagir avec d'autres composants d'OpenStack, ce paquet doit se connecter à un serveur centralisé RabbitMQ.
+ .
+ Veuillez indiquer l'adresse IP de ce serveur.
+Description-it.UTF-8: Indirizzo IP dell'host RabbitMQ:
+ Per poter funzionare insieme agli altri componenti di OpenStack, questo pacchetto deve connettersi al server RabbitMQ centrale.
+ .
+ Inserire l'indirizzo IP di tale server.
+Description-nl.UTF-8: IP-adres van uw RabbitMQ-computer:
+ Om met andere componenten van OpenStack te kunnen samenwerken, moet dit pakket een verbinding maken met een centrale RabbitMQ-server.
+ .
+ Gelieve het IP-adres van die server op te geven.
+Description-pt.UTF-8: Endereço IP da sua máquina RabbitMQ:
+ De modo a interagir com outros componentes do OpenStack, este pacote precisa de ligar a um servidor RabbitMQ central.
+ .
+ Por favor especifique o endereço IP desse servidor.
+Description-ru.UTF-8: IP-адрес узла RabbitMQ:
+ Для взаимодействия с другими компонентами OpenStack, этому пакету необходимо подключаться к центральному серверу RabbitMQ.
+ .
+ Укажите IP-адрес этого сервера.
+Description-sv.UTF-8: IP-adress för din RabbitMQ-värd:
+ För att interagera med andra Openstack-komponenter behöver detta paketet kunna ansluta till en central RabbitMQ-server.
+ .
+ Ange IP-adressen för den servern.
+
+Template: neutron/rabbit_userid
+Type: string
+Default: guest
+Description: Username for connection to the RabbitMQ server:
+ In order to interoperate with other components of OpenStack, this package
+ needs to connect to a central RabbitMQ server.
+ .
+ Please specify the username used to connect to the RabbitMQ server.
+Description-da.UTF-8: Brugernavn for forbindelsen til RabbitMQ-serveren:
+ For at fungere med andre komponenter fra OpenStack, skal denne pakke forbinde til en central RabbitMQ-server.
+ .
+ Angiv venligst brugernavnet brugt til at forbinde til RabbitMQ-serveren:
+Description-de.UTF-8: Benutzername für die Verbindung mit dem RabbitMQ-Server:
+ Um mit weiteren Bestandteilen von OpenStack zusammenzuarbeiten, muss sich dieses Paket mit einem zentralen RabbitMQ-Server verbinden.
+ .
+ Bitte geben Sie den Benutzernamen ein, den Sie zum Verbinden mit dem RabbitMQ-Server verwenden.
+Description-es.UTF-8: Nombre de usuario para la conexión del servidor RabbitMQ:
+ Para poder interoperar con otros componentes de OpenStack, este paquete necesita conectarse a un servidor central de RabbitMQ.
+ .
+ Indique el nombre de usuario para conectarse al servidor RabbitMQ.
+Description-fr.UTF-8: Identifiant pour la connexion au serveur RabbitMQ :
+ Afin de pouvoir interagir avec d'autres composants d'OpenStack, ce paquet doit se connecter à un serveur centralisé RabbitMQ.
+ .
+ Veuillez indiquer l'identifiant à utiliser pour la connexion au serveur RabbitMQ.
+Description-it.UTF-8: Nome utente per la connessione al server RabbitMQ:
+ Per poter funzionare insieme agli altri componenti di OpenStack, questo pacchetto deve connettersi al server RabbitMQ centrale.
+ .
+ Specificare il nome utente da usare per connettersi al server RabbitMQ.
+Description-nl.UTF-8: Gebruikersnaam voor de verbinding met de RabbitMQ-server:
+ Om met andere componenten van OpenStack te kunnen samenwerken, moet dit pakket een verbinding maken met een centrale RabbitMQ-server.
+ .
+ Vermeld de gebruikersnaam waarmee verbinding gemaakt wordt met de RabbitMQ-server.
+Description-pt.UTF-8: Nome de utilizador para ligação ao servidor RabbitMQ:
+ De modo a interagir com outros componentes do OpenStack, este pacote precisa de ligar a um servidor RabbitMQ central.
+ .
+ Por favor especifique o nome de utilizador a usar para ligação ao servidor RabbitMQ.
+Description-ru.UTF-8: Имя пользователя для подключения к серверу RabbitMQ:
+ Для взаимодействия с другими компонентами OpenStack, этому пакету необходимо подключаться к центральному серверу RabbitMQ.
+ .
+ Введите имя пользователя для подключения к серверу RabbitMQ.
+Description-sv.UTF-8: Användarnamn för att ansluta till RabbitMQ-servern:
+ För att interagera med andra Openstack-komponenter behöver detta paketet kunna ansluta till en central RabbitMQ-server.
+ .
+ Ange användarnamnet som ska användas för att ansluta till RabbitMQ-servern:
+
+Template: neutron/rabbit_password
+Type: password
+Description: Password for connection to the RabbitMQ server:
+ In order to interoperate with other components of OpenStack, this package
+ needs to connect to a central RabbitMQ server.
+ .
+ Please specify the password used to connect to the RabbitMQ server.
+Description-da.UTF-8: Adgangskode for forbindelsen til RabbitMQ-serveren:
+ For at fungere med andre komponenter fra OpenStack, skal denne pakke forbinde til en central RabbitMQ-server.
+ .
+ Angiv venligst adgangskoden brugt til at forbinde til RabbitMQ-serveren:
+Description-de.UTF-8: Passwort für die Verbindung mit dem RabbitMQ-Server:
+ Um mit weiteren Bestandteilen von OpenStack zusammenzuarbeiten, muss sich dieses Paket mit einem zentralen RabbitMQ-Server verbinden.
+ .
+ Bitte geben Sie das Passwort ein, das Sie zum Verbinden mit dem RabbitMQ-Server verwenden.
+Description-es.UTF-8: Contraseña para la conexión del servidor RabbitMQ:
+ Para poder interoperar con otros componentes de OpenStack, este paquete necesita conectarse a un servidor central de RabbitMQ.
+ .
+ Indique la contraseña para conectarse al servidor RabbitMQ.
+Description-fr.UTF-8: Mot de passe pour la connexion au serveur RabbitMQ :
+ Afin de pouvoir interagir avec d'autres composants d'OpenStack, ce paquet doit se connecter à un serveur centralisé RabbitMQ.
+ .
+ Veuillez indiquer le mot de passe à utiliser pour la connexion au serveur RabbitMQ.
+Description-it.UTF-8: Password per la connessione al server RabbitMQ:
+ Per poter funzionare insieme agli altri componenti di OpenStack, questo pacchetto deve connettersi al server RabbitMQ centrale.
+ .
+ Specificare la password da usare per connettersi al server RabbitMQ.
+Description-nl.UTF-8: Wachtwoord voor de verbinding met de RabbitMQ-server:
+ Om met andere componenten van OpenStack te kunnen samenwerken, moet dit pakket een verbinding maken met een centrale RabbitMQ-server.
+ .
+ Geef op welk wachtwoord gebruikt moet worden om verbinding te maken met de RabbitMQ-server.
+Description-pt.UTF-8: Palavra passe para ligação ao servidor RabbitMQ:
+ De modo a interagir com outros componentes do OpenStack, este pacote precisa de ligar a um servidor RabbitMQ central.
+ .
+ Por favor especifique a palavra passe a usar para ligação ao servidor RabbitMQ.
+Description-ru.UTF-8: Пароль для подключения к серверу RabbitMQ:
+ Для взаимодействия с другими компонентами OpenStack, этому пакету необходимо подключаться к центральному серверу RabbitMQ.
+ .
+ Введите пароль для подключения к серверу RabbitMQ.
+Description-sv.UTF-8: Lösenord för att ansluta till RabbitMQ-servern:
+ För att interagera med andra Openstack-komponenter behöver detta paketet kunna ansluta till en central RabbitMQ-server.
+ .
+ Lösenord för att ansluta till RabbitMQ-servern:
+
+Template: neutron/tenant_network_type
+Type: select
+Choices: local, gre, vlan, none
+Choices-da.UTF-8: lokal, gre, vlan, ingen
+Choices-de.UTF-8: lokal, GRE, VLAN, keines
+Choices-es.UTF-8: local, gre, vlan, ninguno
+Choices-fr.UTF-8: local, gre, vlan, aucun
+Choices-it.UTF-8: locale, gre, vlan, nessuna
+Choices-nl.UTF-8: lokaal, gre, vlan, geen
+Choices-pt.UTF-8: local, gre, vlan, nenhum
+Choices-ru.UTF-8: local, gre, vlan, нет
+Choices-sv.UTF-8: lokal, gre, vlan, ingen
+Choices-C: local, gre, vlan, none
+Default: gre
+Description: Type of network to allocate for tenant networks:
+ The value "local" is useful only for single-box testing. In order for
+ tenant networks to provide connectivity between hosts, it is necessary
+ to either choose "vlan" and then configure "network_vlan_ranges" or to
+ choose "gre" and then configure "tunnel_id_ranges". Choose "none" to
+ disable creation of tenant networks.
+Description-da.UTF-8: Netværkstype at allokere for tenant-netværk:
+ Værdien »lokal« er kun nyttig for single-box-test. For at tenant-netværk kantilbyde forbindelse mellem værter, er det nødvendigt at vælge enten »vlan« og så konfigurere »network_vlan_ranges« eller at vælge »gre« og så konfigurere »tunnel_id_ranges«. Vælg »ingen« for at deaktivere oprettelsen af tenant-netværk.
+Description-de.UTF-8: Netzwerktyp, der für Tenant-Netzwerke reserviert werden soll:
+ Der Wert »lokal« ist nur für das Testen einzelner Boxen nützlich. Damit Tenant-Netzwerke Verbindungen zwischen Rechnern bereitstellen können, ist es nötig, entweder »VLAN« auszuwählen und dann »network_vlan_ranges« zu konfigurieren oder »GRE« und dann »tunnel_id_ranges« einzurichten. Wählen Sie »keines«, um das Erstellen von Tenant-Netzwerken zu deaktivieren.
+Description-es.UTF-8: Tipo de red a configurar para las redes de inquilinos («tenants»):
+ El valor «local» puede resultar útil para realizar pruebas en equipos independientes. Para que las redes de inquilinos («tenants») puedan proporcionar conectividad entre los equipos es necesario seleccionar «vlan» y configurar después «network_vlan_ranges» o seleccionar «gre» y configurar después «tunnel_id_ranges». Seleccione «ninguno» para desactivar la creación de redes de inquilinos («tenants»).
+Description-fr.UTF-8: Type de réseau à affecter aux réseaux d'espace client :
+ La valeur « local » est utile seulement pour des tests avec un seul nœud. Afin que les réseaux d'espace client fournissent de la connectivité entre les hôtes, il est nécessaire de choisir entre « vlan » puis de configurer « network_vlan_ranges », ou bien de choisir « gre » et alors de configurer « tunnel_id_ranges ». Veuillez choisir « aucun » pour désactiver la création de réseaux d'espace client.
+Description-it.UTF-8: Tipo di rete da allocare per le reti dei «locatari» («tenant»):
+ Il valore «locale» è utile solo per fare test su macchine singole. Affinché le reti dei «locatari» («tenant») possano fornire la connettività fra host, è necessario scegliere «vlan» e poi configurare «network_vlan_ranges» oppure scegliere «gre» e poi configurare «tunnel_id_ranges». Scegliere «nessuna» per disabilitare la creazione di reti dei «locatari».
+Description-nl.UTF-8: Soort netwerk dat aan pachters("tenant")-netwerken toegekend wordt:
+ De waarde "lokaal" is alleen zinvol voor een testopstelling op een zelfstandige computer. Opdat pachters("tenant")-netwerken verbindingen tot stand zouden kunnen brengen tussen computers, moet u ofwel "vlan" kiezen en dan "network_vlan_ranges" instellen, ofwel "gre" kiezen en dan "tunnel_id_ranges" instellen. Kies "geen" om het aanmaken van pachters("tenant")-netwerken uit te schakelen.
+Description-pt.UTF-8: Tipo de rede a alocar para redes tenant:
+ O valor "local" é útil apenas para testes em máquina-única. De modo a que redes tenant disponibilizem ligações entre máquinas, é necessário ou escolher "vlan" e depois configurar "network_vlan_ranges" ou escolher "gre" e depois configurar "tunnel_id_ranges". Escolha "nenhum" para desactivar a criação de redes tenant.
+Description-ru.UTF-8: Тип сети tenant-сетей:
+ Значение «local» полезно только для тестирования на одной машине. Чтобы для связи узлов использовались tenant-сети необходимо или выбрать «vlan» и затем настроить «network_vlan_ranges», или выбрать «gre» и затем настроить «tunnel_id_ranges». Выберите «нет», чтобы отключить создание tenant-сетей.
+Description-sv.UTF-8: Nätverkstyp att avdela till tenant-nätverk:
+ Värdet "lokal" används bara vid testning av ensam-maskin-installationer. För att tenant-nätverk ska tillhandahålla anslutningar mellan värdar behöver antingen "vlan" och inställningen "
+ etwork_vlan_ranges" eller "gre" och därefter "tunnel_id_ranges" anges. Välj "ingen" för att inte skapa tenant-nätverk.
+
+Template: neutron/enable_tunneling
+Type: boolean
+Default: true
+Description: Enable tunneling?
+ Please choose whether support should be activated for GRE networks on the
+ server and agents. This requires kernel support for OVS patch ports and
+ GRE tunneling.
+Description-da.UTF-8: Aktiver tunnelstøtte?
+ Angiv venligst om understøttelse skal aktiveres for GRE-netværk på serveren og agenterne. Dette kræver kerneunderstøttelse for OVS-rettelsesporte og GRE-tunnelstøtte.
+Description-de.UTF-8: Tunneln aktivieren?
+ Bitte wählen Sie, ob auf dem Server und den Clients Unterstützung für GRE-Netzwerke aktiviert werden soll. Dies erfordert Kernel-Unterstützung für OVS-Patch-Ports und GRE-Tunnel.
+Description-es.UTF-8: ¿Desea activar los túneles?
+ Indique si desea activar los túneles para las redes GRE en el servidor y los agentes. Necesita que el núcleo sea compatible con túneles GRE y puertos de conexión OVS («patched ports»).
+Description-fr.UTF-8: Activer les tunnels ?
+ Veuillez décider si la prise en charge des réseaux GRE doit être activée sur le serveur et les agents. Cela nécessite que le noyau gère les « patch ports » OVS et les tunnels GRE.
+Description-it.UTF-8: Abilitare i tunnel?
+ Scegliere se deve essere attivato il supporto per reti GRE sul server e sugli agenti. Ciò richiede il supporto nel kernel per le porte OVS patch e i tunnel GRE.
+Description-nl.UTF-8: Tunneling aanzetten?
+ Gelieve aan te geven of ondersteuning voor GRE-netwerken moet geactiveerd worden op de server en de intermediairen. Dit vereist kernelondersteuning voor OVS-patch-poorten en GRE-tunneling.
+Description-pt.UTF-8: Activar ligação em túnel (tunneling)?
+ Por favor escolha se deve ser activado suporte para redes GRE no servidor e nos agentes. Isto requer suporte de kernel para portos de patch OVS e ligação GRE em túnel.
+Description-ru.UTF-8: Включить туннелирование?
+ Выберите, нужно ли активировать поддержку сетей GRE на сервере и агентах. Это требует поддержки в ядре патч-портов OVS и туннелирования GRE.
+Description-sv.UTF-8: Aktivera tunnelstöd?
+ Ange om stöd för GRE-nätverk ska aktiveras på server och agenter, Detta kräver stöd i kärnan för OVS-patch-portar och GRE-tunnlar.
+
+Template: neutron/tunnel_id_ranges
+Type: string
+Default: 1:1000
+Description: Tunnel id ranges:
+ Please enter a comma-separated list of <tun_min>:<tun_max> tuples enumerating
+ ranges of GRE tunnel IDs that are available for tenant network allocation
+ if tenant_network_type is "gre".
+Description-da.UTF-8: Tunnel-id-intervaller:
+ Angiv en kommaadskilt liste med <tun_min>:<tun_max>-tupleroptællingsintervaller for GRE-tunnel-id'er som er tilgængelige for tenant-netværksallokering hvis tenant_network_type er »gre«.
+Description-de.UTF-8: Tunnel-ID-Bereiche:
+ Bitte geben Sie eine durch Kommas getrennte Liste von <tun_min>:<tun_max>-Tupeln ein, die für die Reservierung von Tenant-Netzwerken verfügbare Bereiche von GRE-Tunnel-IDs aufzählen, falls der Netzwerktyp »GRE« ist.
+Description-es.UTF-8: Rangos de identificadores de túneles:
+ Introduzca una lista de tuplas <tun_min>:<tun_max> separadas por comas para los rangos de los identificadores del túnel GRE que se encuentran disponibles para las redes de inquilinos («tenants») si ha seleccionado «gre» para la opción tenant_network_type.
+Description-fr.UTF-8: Plages d'identifiants de tunnel :
+ Veuillez indiquer une liste de couples <tun_min>:<tun_max>, séparés par des virgules, énumérant les plages d'identifiants des tunnels GRE disponibles pour l'affectation au réseau d'espace client, si le type de réseau d'espace client est « gre ».
+Description-it.UTF-8: Intervalli ID per il tunnel:
+ Inserire una lista separata da virgole di tuple <tun_min>:<tun_max> che elenca gli intervalli di ID tunnel GRE che sono disponibili per l'allocazione di reti dei «locatari» («tenant») se tenant_network_type è «gre».
+Description-nl.UTF-8: Gamma van tunnel-id's:
+ Geef een met komma's gescheiden lijst op van  <tun_min>:<tun_max>-veeltallen als een oplijsting van het gamma van beschikbare GRE-tunnel-ID's die toegewezen kunnen worden aan pachters("tenant")-netwerken als het tenant_network_type "gre" is.
+Description-pt.UTF-8: Tunnel id ranges (alcances de id de túnel):
+ Por favor indique uma lista separada por vírgulas de "tuples" <tun_min>:<tun_max> enumerando alcances de IDs de túnel GRE que estão disponíveis para alocação de rede tenant se o "tipo de rede tenant" for "gre".
+Description-ru.UTF-8: Диапазоны идентификаторов туннелей:
+ Введите через запятую кортежи <tun_min>:<tun_max>, перечисляющие диапазоны идентификаторов туннелей GRE, которые доступны для tenant-сети, если tenant_network_type равен «gre».
+Description-sv.UTF-8: Tillgängliga tunnel ID:
+ Ange en kommaseparerad lista med <tun_min>:<tun_max>-värden motsvarande de GRE-tunnel-ID som finns tillgängliga för tenant-nätverk om tenant_network_type är "gre".
+
+Template: neutron/local_ip
+Type: string
+Description: Local IP address of this hypervisor:
+ Please enter the local IP address for this hypervisor.
+Description-da.UTF-8: Lokal IP-adresse for denne hypervisor:
+ Angiv den lokale IP-adresse for denne hypervisor.
+Description-de.UTF-8: Lokale IP-Adresse dieses Hypervisors:
+ Bitte geben Sie die lokale IP-Adresse dieses Hypervisors ein.
+Description-es.UTF-8: Dirección IP local de este hipervisor:
+ Introduzca la dirección IP local para este hipervisor.
+Description-fr.UTF-8: Adresse IP locale de cet hyperviseur :
+ Veuillez indiquer l'adresse IP locale de cet hyperviseur.
+Description-it.UTF-8: Indirizzo IP locale di questo ipervisore:
+ Inserire l'indirizzo IP locale di questo ipervisore.
+Description-nl.UTF-8: Lokale IP-adres van deze hypervisor:
+ Geef het lokale IP-adres op van deze hypervisor.
+Description-pt.UTF-8: Endereço IP local deste hypervisor:
+ Por favor indique o endereço IP local deste hypervisor.
+Description-ru.UTF-8: Локальный IP-адрес этого гипервизора:
+ Введите локальный IP-адрес этого гипервизора.
+Description-sv.UTF-8: Lokal IP-adress för denna hypervisor:
+ Ange den lokala IP-adressen för denna hypervisor.
+
+Template: neutron/nova_url
+Type: string
+Default: http://127.0.0.1:8774/v2
+Description: Nova server URL:
+ Please enter the URL of the Nova server.
+Description-da.UTF-8: Nova-serveradresse:
+ Angiv venligst adressen for Nova-serveren.
+Description-es.UTF-8: URL del servidor Nova:
+ Introduzca la URL del servidor Nova.
+Description-fr.UTF-8: Adresse URL du serveur Nova :
+ Veuillez indiquer l'adresse URL du serveur Nova..
+Description-nl.UTF-8: URL van de Novaserver:
+ Gelieve het IP-adres van de Novaserver op te geven.
+Description-pt.UTF-8: URL do servidor Nova:
+ Por favor indique o URL do servidor Nova.
+
+Template: neutron/nova_region
+Type: string
+Default: regionOne
+Description: Nova server region name:
+ Please enter the region of the Nova server.
+Description-da.UTF-8: Regionsnavn for Novaserver:
+ Angiv venligst regionen for Novaserveren.
+Description-es.UTF-8: Nombre de la región del servidor Nova:
+ Introduzca la región del servidor Nova.
+Description-fr.UTF-8: Nom de région pour le serveur Nova :
+ Veuillez indiquer la région du serveur Nova.
+Description-nl.UTF-8: Naam van de regio van de Novaserver:
+ Gelieve de regio van de Novaserver op te geven.
+Description-pt.UTF-8: Nome de região do servidor Nova:
+ Por favor indique a região do servidor Nova.
+
+Template: neutron/nova_admin_tenant_id
+Type: string
+Default: admin
+Description: Nova admin tenant ID:
+ Neutron needs to be able to communicate with Nova through Keystone. Therefore
+ Neutron needs to know the Nova admin tenant ID, username and password.
+ .
+ Please enter the ID of the admin tenant for Nova.
+Description-da.UTF-8: Tenant-id for Novaadministratoren:
+ Neutron skal være i stand til at kommunikere med Nova via Keystone. Derfor skal Neutron kende til tenant-Id'et for Novaadministratoren, brugernavn og adgangskode.
+ .
+ Indtast venligst Id'et for admininistratortenanten for Nova.
+Description-es.UTF-8: ID del inquilino («tenant») administrador de Nova:
+ Neutron necesita poder comunicarse con Nova a través de Keystone. Por lo tanto, Neutron necesita saber el identificador del inquilino («tenant») administrador de Nova, el nombre de usuario y la contraseña.
+ .
+ Introduzca el ID del inquilino («tenant») administrador de Nova.
+Description-fr.UTF-8: Identifiant du client administrateur pour Nova :
+ Neutron doit pouvoir communiquer avec Nova au travers de Keystone. Cependant Neutron a besoin de connaître l'identifiant du client admin de Nova, nom d'utilisateur et mot de passe.
+ .
+ Veuillez indiquer l'identifiant du client administrateur pour Nova.
+Description-nl.UTF-8: ID van de clientruimte (tenant) van de beheerder van Nova:
+ Neutron moet met Nova kunnen communiceren via Keystone. Om die reden moet Neutron de ID van de clientruimte (tenant) van de Nova-beheerder kennen en diens gebruikersnaam en wachtwoord.
+ .
+ Gelieve de ID van de clientruimte (tenant) van de Nova-beheerder in te voeren.
+Description-pt.UTF-8: ID do "tenant admin" do Nova:
+ O Neutron precisa de ser capaz de comunicar com o Nova através do Keystone. Por isso o Neutron precisa de saber o ID tenant admin, o nome de utilizador e palavra passe do Nova.
+ .
+ Por favor indique o ID do "tenant admin" para o Nova.
+
+Template: neutron/nova_admin_username
+Type: string
+Default: admin
+Description: Neutron administrator username:
+ Please enter the username of the Nova administrator.
+Description-da.UTF-8: Neutron-administratorbrugernavn:
+ Angiv venligst brugernavnet for Novaadministratoren.
+Description-es.UTF-8: Nombre de usuario del administrador de Neutron:
+ Introduzca el nombre de usuario del administrador de Nova.
+Description-fr.UTF-8: Identifiant de l'administrateur de Neutron :
+ Veuillez indiquer l'identifiant de l'administrateur pour Nova.
+Description-nl.UTF-8: Gebruikersnaam van de beheerder van Neutron:
+ Gelieve de gebruikersnaam van de Nova-beheerder in te voeren.
+Description-pt.UTF-8: Nome de utilizador do administrador do Neutron:
+ Por favor indique o nome de utilizador do administrador do Nova.
+
+Template: neutron/nova_admin_password
+Type: password
+Description: Nova administrator password:
+ Please enter the password of the Nova administrator.
+Description-da.UTF-8: Adgangskode for Novaadministratoren:
+ Angiv venligst adgangskoden for Novaadministratoren.
+Description-es.UTF-8: Contraseña del administrador de Nova:
+ Introduzca la contraseña del administrador de Nova.
+Description-fr.UTF-8: Mot de passe administrateur pour Nova :
+ Veuillez indiquer le mot de passe de l'administrateur pour Nova.
+Description-nl.UTF-8: Wachtwoord van de Nova-beheerder:
+ Gelieve het wachtwoord van de Nova-beheerder in te voeren.
+Description-pt.UTF-8: Palavra passe do administrador do Nova:
+ Por favor indique a palavra passe do administrador do Nova.

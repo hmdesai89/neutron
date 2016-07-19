@@ -1,0 +1,2 @@
+misc:Depends=debconf (>= 0.5) | debconf-2.0, init-system-helpers (>= 1.18~), lsb-base (>= 4.1+Debian11ubuntu7)
+misc:Pre-Depends=
