@@ -1,0 +1,114 @@
+#!/bin/sh
+
+set -e
+
+. /usr/share/debconf/confmodule
+
+N_CONF=/etc/neutron/neutron.conf
+OVS_CONF=/etc/neutron/plugins/openvswitch/ovs_neutron_plugin.ini
+
+# Please remember this function is also in debian/plugin_guess_func
+neutron_core_plugin_to_plugin_name () {
+	case ${1} in
+	"neutron.plugins.openvswitch.ovs_neutron_plugin.OVSNeutronPluginV2")
+		NEUTRON_PLUGIN_NAME=OpenVSwitch
+	;;
+	"neutron.plugins.linuxbridge.lb_neutron_plugin.LinuxBridgePluginV2")
+		NEUTRON_PLUGIN_NAME=LinuxBridge
+	;;
+	"neutron.plugins.ml2.plugin.Ml2Plugin")
+		NEUTRON_PLUGIN_NAME=ml2
+	;;
+	"neutron.plugins.ryu.ryu_neutron_plugin.RyuNeutronPluginV2")
+		NEUTRON_PLUGIN_NAME=RYU
+	;;
+	"neutron.plugins.plumgrid.plumgrid_nos_plugin.plumgrid_plugin.NeutronPluginPLUMgridV2")
+		NEUTRON_PLUGIN_NAME=PLUMgrid
+	;;
+	"neutron.plugins.brocade.NeutronPlugin.BrocadePluginV2")
+		NEUTRON_PLUGIN_NAME=Brocade
+	;;
+	"neutron.plugins.hyperv.hyperv_neutron_plugin.HyperVNeutronPlugin")
+		NEUTRON_PLUGIN_NAME=Hyper-V
+	;;
+	"neutron.plugins.bigswitch.plugin.NeutronRestProxyV2")
+		NEUTRON_PLUGIN_NAME=BigSwitch
+	;;
+	"neutron.plugins.cisco.network_plugin.PluginV2")
+		NEUTRON_PLUGIN_NAME=Cisco
+	;;
+	"neutron.plugins.nicira.NeutronPlugin.NvpPluginV2")
+		NEUTRON_PLUGIN_NAME=neutron.plugins.nicira.NeutronPlugin.NvpPluginV2
+	;;
+	"neutron.plugins.midonet.plugin.MidonetPluginV2")
+		NEUTRON_PLUGIN_NAME=Midonet
+	;;
+	"neutron.plugins.nec.nec_plugin.NECPluginV2")
+		NEUTRON_PLUGIN_NAME=Nec
+	;;
+	"neutron.plugins.metaplugin.meta_neutron_plugin.MetaPluginV2")
+		NEUTRON_PLUGIN_NAME=MetaPlugin
+	;;
+	"neutron.plugins.mlnx.mlnx_plugin.MellanoxEswitchPlugin")
+		NEUTRON_PLUGIN_NAME=Mellanox
+	;;
+	*)
+		NEUTRON_PLUGIN_NAME="other"
+	;;
+	esac
+}
+
+#PKGOS-INCLUDE#
+
+pkgos_var_user_group neutron
+chmod 755 /var/lib/neutron
+
+# Configure the SQL connection
+pkgos_dbc_read_conf -pkg neutron-common ${N_CONF} database connection neutron $@
+pkgos_rabbit_read_conf ${N_CONF} oslo_messaging_rabbit neutron
+
+# Configure the keystone_authtoken
+pkgos_read_admin_creds ${N_CONF} keystone_authtoken neutron
+
+# Select which plugin to use
+if [ -r "${N_CONF}" ] ; then
+	pkgos_inifile get ${N_CONF} DEFAULT core_plugin
+	if [ -n "${RET}" ] ; then
+		NEUTRON_CORE_PLUGIN_CLASS=${RET}
+		neutron_core_plugin_to_plugin_name ${NEUTRON_CORE_PLUGIN_CLASS}
+		db_set neutron/plugin-select ${NEUTRON_PLUGIN_NAME}
+	fi
+fi
+db_input high neutron/plugin-select || true
+db_go
+db_get neutron/plugin-select
+NEUTRON_PLUGIN_NAME=${RET}
+
+read_nova_admin_credentials () {
+	pkgos_read_config -p high ${N_CONF} DEFAULT nova_url neutron/nova_url
+	pkgos_read_config -p high ${N_CONF} DEFAULT nova_region_name neutron/nova_region
+	pkgos_read_config -p medium ${N_CONF} DEFAULT nova_admin_tenant_id neutron/nova_admin_tenant_id
+	pkgos_read_config -p medium ${N_CONF} DEFAULT nova_admin_username neutron/nova_admin_username
+	pkgos_read_config -p high ${N_CONF} DEFAULT nova_admin_password neutron/nova_admin_password
+}
+
+# OVS specific configurations (if that's the one selected)
+if [ "${NEUTRON_PLUGIN_NAME}" = "OpenVSwitch" ] ; then
+	# Various network config...
+	pkgos_read_config ${OVS_CONF} OVS tenant_network_type   neutron/tenant_network_type
+	pkgos_read_config ${OVS_CONF} OVS enable_tunneling      neutron/enable_tunneling
+	pkgos_read_config ${OVS_CONF} OVS tunnel_id_ranges      neutron/tunnel_id_ranges
+
+	read_nova_admin_credentials
+
+	# Guess values to put in the local_ip directive
+	IF=`LC_ALL=C route | grep default |awk -- '{ print $8 }'`
+	guessed_ip_addr=`LC_ALL=C ifconfig ${IF} | grep 'inet addr' | sed 's/.\+inet addr:\([0-9.]\+\).\+/\1/'`
+	if [ -z "${guessed_ip_addr}" ] ; then
+		guessed_ip_addr=`LC_ALL=C ifconfig ${IF} | grep 'inet adr' | sed 's/.\+inet adr:\([0-9.]\+\).\+/\1/'`
+	fi
+	db_set neutron/local_ip ${guessed_ip_addr}
+	pkgos_read_config ${OVS_CONF} OVS local_ip neutron/local_ip
+fi
+
+exit 0

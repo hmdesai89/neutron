@@ -1,0 +1,37 @@
+#!/bin/sh
+
+set -e
+
+CONF_FILE=/etc/neutron/metadata_agent.ini
+
+#PKGOS-INCLUDE#
+
+manage_metadata_region () {
+	db_get neutron-metadata/region-name
+	if [ -n "${RET}" ] ; then
+		pkgos_inifile set ${CONF_FILE} DEFAULT auth_region ${RET}
+	fi
+}
+
+manage_metadata_proxy_shared_secret () {
+	db_get neutron-metadata/metadata_secret
+	pkgos_inifile set ${CONF_FILE} DEFAULT metadata_proxy_shared_secret ${RET}
+}
+
+if [ "${1}" = "configure" ] ; then
+	. /usr/share/debconf/confmodule
+	pkgos_var_user_group neutron
+	chmod 755 /var/lib/neutron
+
+	if [ ! -e ${CONF_FILE} ] ; then
+		install -D -m 0640 -o neutron -g neutron /usr/share/neutron-metadata-agent/metadata_agent.ini ${CONF_FILE}
+	fi
+	pkgos_write_admin_creds ${CONF_FILE} DEFAULT neutron-metadata
+	manage_metadata_region
+	manage_metadata_proxy_shared_secret
+	db_stop
+fi
+
+#DEBHELPER#
+
+exit 0

@@ -1,0 +1,430 @@
+neutron (2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu1) UNRELEASED; urgency=medium
+
+  * Testing debian package for our code
+
+ -- Harsh Desai <hmdesai89@gmail.com>  Tue, 19 Jul 2016 12:38:41 +0530
+
+neutron (2015.1.0+2015.06.24.git61.bdf194a0e1-4) unstable; urgency=medium
+
+  * Translation updates: es.po and nl.po (Closes: #792185, #798837).
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 14 Sep 2015 07:17:39 +0000
+
+neutron (2015.1.0+2015.06.24.git61.bdf194a0e1-3) unstable; urgency=medium
+
+  * Added requirements.txt patch for SQLA version.
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 01 Jul 2015 03:02:58 +0000
+
+neutron (2015.1.0+2015.06.24.git61.bdf194a0e1-2) unstable; urgency=medium
+
+  * Rebuilt for sqlalchemy 1.0.6.
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 01 Jul 2015 02:14:01 +0000
+
+neutron (2015.1.0+2015.06.24.git61.bdf194a0e1-1) unstable; urgency=medium
+
+  * New upstream release (based on commit 61 and sha bdf194a0e1).
+  * Added patch for CVE-2015-3221 (Closes: #789713):
+    CVE-2015-3221_Provide_work_around_for_0.0.0.0_for_ipset.patch
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 24 Jun 2015 07:41:07 +0000
+
+neutron (2015.1.0-4) unstable; urgency=medium
+
+  * Updated Danish da.po debconf translation (Closes: #787375).
+
+ -- Thomas Goirand <zigo@debian.org>  Sun, 14 Jun 2015 15:58:35 +0200
+
+neutron (2015.1.0-3) unstable; urgency=medium
+
+  * Updated pt.po translation of debconf messages (Closes: #784589).
+  * Updated fr.po thanks to Julien Patriarca (Closes: #785226).
+
+ -- Thomas Goirand <zigo@debian.org>  Tue, 12 May 2015 23:21:01 +0200
+
+neutron (2015.1.0-2) unstable; urgency=medium
+
+  [ gustavo panizzo ]
+  * Fix a problem with openvswitch-agent where it's config file was not being
+    loaded.
+
+  [ Thomas Goirand ]
+  * Added Gustavo Panizzo <gfa@zumbi.com.ar> as uploaders.
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 06 May 2015 07:57:24 +0000
+
+neutron (2015.1.0-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 30 Apr 2015 21:54:26 +0000
+
+neutron (2015.1~rc2-1) unstable; urgency=medium
+
+  [ Thomas Goirand ]
+  * New upstream release.
+  * Updated (build-)depends for this release.
+  * Removed quantum transition packages, and lbass package (the later is now a
+    separated project).
+
+  [ gustavo panizzo ]
+  * Updated ovs agent and lb agent init scripts, since they are deprecated as
+    core_plugin and should be used in conjunction of ml2.
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 24 Dec 2014 15:10:00 +0800
+
+neutron (2014.2.1-1) experimental; urgency=medium
+
+  * New upstream release.
+  * cve-2014-7821_DoS_through_invalid_DNS_configuration_juno.patch is now
+    applied upstream, so removed it.
+  * Now build-depends on openstack-pkg-tools (>= 20~).
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 12 Dec 2014 23:02:10 +0800
+
+neutron (2014.2-4) experimental; urgency=medium
+
+  * CVE-2014-7821: DoS through invalid DNS configuration. Applied upstream
+    patch: Fix hostname regex pattern (Closes: #770431).
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 21 Nov 2014 16:39:03 +0800
+
+neutron (2014.2-3) experimental; urgency=medium
+
+  * Patches the ml2 plugin ini file to be like the install-guide by default.
+  * Added defaults-closer-to-install-guide.patch to have l3 and dhcp init files
+    match what the install-guide proposes as configuration.
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 23 Oct 2014 14:59:07 +0800
+
+neutron (2014.2-2) experimental; urgency=medium
+
+  * Removed arping from depends of python-neutron, and put iputils-arping as
+    Recommends:.
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 16 Oct 2014 15:17:02 +0000
+
+neutron (2014.2-1) experimental; urgency=medium
+
+  * New upstream release.
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 16 Oct 2014 14:52:35 +0000
+
+neutron (2014.2~rc2-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Updated (build-)depends for this release.
+  * Added ipset, iproute2, arping and keepalived as dependency.
+  * Now using a single logrotate file in neutron-common.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 10 Oct 2014 23:11:10 +0800
+
+neutron (2014.2~rc1-3) experimental; urgency=medium
+
+  * Fixed debconf template and ran debconf-updatepo.
+  * Another fix for the SQLite Alembic migrations.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 10 Oct 2014 07:34:35 +0000
+
+neutron (2014.2~rc1-2) experimental; urgency=medium
+
+  * Mangling upstream rc and beta versions in watch file.
+  * Fixed 0001-Add-parameter-and-iptables-rules-to-protect-dnsmasq-.patch
+    wrong identation.
+  * Added sqlite3 as dependency.
+  * Added debian/patches/more-alembic-with-sqlite-migration-fixes.patch.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 10 Oct 2014 15:00:51 +0800
+
+neutron (2014.2~rc1-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Now using templated init script for sysv-rc, generated systemd unit and
+    upstart jobs, using openstack-pkg-tools >= 13.
+  * Refreshed/rebased/reworked fix-alembic-migration-with-sqlite3.patch.
+  * Removed reference and license for tools/rfc.sh which doesn't exist, in
+    debian/copyright.
+  * Standards-Version is now 3.9.6.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 03 Oct 2014 18:53:11 +0800
+
+neutron (2014.2~b3-1) experimental; urgency=medium
+
+  [ Thomas Goirand ]
+  * Disabled ml2 config patch.
+  * Fixed (build-)depends for this release.
+  * Rebased patches.
+
+  [ gustavo panizzo ]
+  * New upstream release.
+  * Support to run neutron under systemd.
+
+ -- Thomas Goirand <zigo@debian.org>  Sat, 20 Sep 2014 07:54:55 +0000
+
+neutron (2014.1.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Removed OVS_lib_defer_apply_doesn_t_handle_concurrency.patch applied
+    upstream.
+  * Removed Install_SNAT_rules_for_ipv4_only.patch applied upstream.
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 09 Jun 2014 23:06:59 +0800
+
+neutron (2014.1-8) unstable; urgency=medium
+
+  * Added sane-defaults-for-ml2_conf.ini.patch.
+  * Added missing dbconfig-common dependency.
+  * Also patches dhcp_agent.ini and dhcp_agent.ini for sane defaults.
+
+ -- Thomas Goirand <zigo@debian.org>  Sat, 07 Jun 2014 17:27:55 +0800
+
+neutron (2014.1-7) unstable; urgency=medium
+
+  * Updates the OVS_lib_defer_apply_doesn_t_handle_concurrency.patch patch
+    (Closes: #750415).
+  * Now build-depends on openstack-pkg-tools (>= 12~).
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 05 Jun 2014 07:25:38 +0000
+
+neutron (2014.1-6) unstable; urgency=high
+
+  * Adds Install_SNAT_rules_for_ipv4_only.patch. Note that without this patch,
+    it's possible to destroy an OpenStack cloud network, which is why I'm
+    putting urgency=high in this upload.
+
+ -- Thomas Goirand <zigo@debian.org>  Tue, 03 Jun 2014 00:07:08 +0800
+
+neutron (2014.1-5) unstable; urgency=medium
+
+  * Switched from restarting daemons to copytruncate for logrotate.
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 29 May 2014 13:44:03 +0800
+
+neutron (2014.1-4) unstable; urgency=medium
+
+  * Fixed linuxbridge init script.
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 21 May 2014 08:37:03 +0800
+
+neutron (2014.1-3) unstable; urgency=medium
+
+  * Added Russian Debconf translation, thanks to Yuri Kozlov
+    <yuray@komyakino.ru> (Closes: #746939).
+
+ -- Thomas Goirand <zigo@debian.org>  Sun, 04 May 2014 14:36:24 +0800
+
+neutron (2014.1-2) unstable; urgency=medium
+
+  * Unbreaks fr.po, thanks to Christian Perrier (Closes: #745249).
+  * Added it.po thanks to Beatrice Torracca (Closes: #746575).
+  * Added a Provides: neutron-plugin-ml2 in neutron-common (LP: #1309858).
+
+ -- Thomas Goirand <zigo@debian.org>  Sat, 03 May 2014 02:22:50 +0000
+
+neutron (2014.1-1) unstable; urgency=medium
+
+  [ Thomas Goirand ]
+  * New upstream pre-release.
+  * Uploading to unstable.
+  * Readded 0004-Fix-Metering-doesn-t-respect-the-l3-agent-binding.patch with
+    the last review from upstream.
+
+  [ Sylvain Baubeau ]
+  * Allow selecting log destination for Neutron daemons
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 09 Apr 2014 23:46:07 +0800
+
+neutron (2014.1~rc1-2) experimental; urgency=low
+
+  * More SQLite migration fixes for Icehouse.
+  * Added OVS_lib_defer_apply_doesn_t_handle_concurrency.patch
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 07 Apr 2014 14:23:29 +0800
+
+neutron (2014.1~rc1-1) experimental; urgency=medium
+
+  [ gustavo panizzo ]
+  * Fixes an issue using ml2 and openvswitch plugin, openvswitch agent wasn't 
+  loading it's config file.
+
+  [ Thomas Goirand ]
+  * New upstream release.
+  * Removed SQLAlchemy version in requirements.txt patch (now useless).
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 04 Apr 2014 13:29:48 +0000
+
+neutron (2014.1~b3-1) experimental; urgency=low
+
+  * New upstream release (Icehouse beta 3).
+  * Fixed /var/lib/neutron/dhcp folder rights for Ubuntu.
+
+ -- Thomas Goirand <zigo@debian.org>  Sat, 14 Dec 2013 00:44:19 +0800
+
+neutron (2013.2.2-1) unstable; urgency=medium
+
+  [ gustavo panizzo <gfa@zumbi.com.ar> ]
+  * New upstream release.
+  * Patch 0003-Fix-MeteringLabel-model-to-not-clear-router-s-tenant-id-on
+    deletion was merged upstream. Removed from debian/patches.
+
+  [ Thomas Goirand ]
+  * Refreshed patches.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 14 Feb 2014 07:01:38 +0000
+
+neutron (2013.2.1-5) unstable; urgency=medium
+
+  * Fix /var/lib/neutron and /var/lib/neutron/dhcp folder rights in
+    debian/neutron-common.postinst.in.
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 13 Feb 2014 19:43:22 +0800
+
+neutron (2013.2.1-4) unstable; urgency=medium
+
+  * Restart daemons after logrotate.
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 03 Feb 2014 16:40:52 +0800
+
+neutron (2013.2.1-3) unstable; urgency=medium
+
+  * Added new Debconf template translations thanks to:
+    - Spanish: Camaleón (Closes: #734286).
+    - Swedish: Martin Bagge (Closes: #734705).
+  * Downgrades openswan from depends to suggests, because openswan is hardly
+    maintained, and not available from testing, which is blocking Neutron from
+    migrating: this isn't worth the trouble.
+
+ -- Thomas Goirand <zigo@debian.org>  Sun, 12 Jan 2014 17:31:46 +0800
+
+neutron (2013.2.1-2) unstable; urgency=low
+
+  [ gustavo panizzo ]
+  * patch backported from icehouse-1 to simplify use of metadata on
+    provider networks.
+
+  [ Thomas Goirand ]
+  * Added a bunch of bugfix in advance from the next point release. Thanks
+  * to
+    Sylvain Afchain <sylvain.afchain@enovance.com> for helping gathering and
+    testing these.
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 30 Dec 2013 23:12:45 +0800
+
+neutron (2013.2.1-1) unstable; urgency=high
+
+  * New upstream release. This fixes CVE-2013-6419.
+  * Refresh better-config-default.patch.
+  * Fixed rights of /var/lib/neutron/dhcp in the Ubuntu case.
+  * Added python-neutronclient (>= 2.3.0) as dependency of python-neutron.
+  * Fixes French debconf translation thanks to our Cheesemaster Christian
+    Perrier (Closes: #732266).
+  * Added Italian debconf translation, thanks to Beatrice Torracca
+    <beatricet@libero.it> (Closes: #732078).
+  * Fixed version of (build-)depends for python-six and python-iso8601.
+  * Added openswan as dependency for neutron-vpn-agent.
+
+ -- Thomas Goirand <zigo@debian.org>  Sat, 14 Dec 2013 00:44:51 +0800
+
+neutron (2013.2-9) unstable; urgency=medium
+
+  * Added missing handling of ml2 plugin in neutron-common.postinst.
+  * Do not call neutron-db-manage --config-file /etc/neutron/neutron.conf
+    upgrade head if the user didn't ask for db management through debconf.
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 05 Dec 2013 20:30:09 +0800
+
+neutron (2013.2-8) unstable; urgency=medium
+
+  * Fixes the core_plugin setup in neutron-common postinst.
+  * Added new debconf templates translations, with warm thanks to:
+    - French, Julien Patriarca <leatherface@debian.org> (Closes: #728764).
+    - Portuguese, Américo Monteiro <a_monteiro@gmx.com> (Closes: #729928).
+  * Configures service_plugins =
+    neutron.services.l3_router.l3_router_plugin.L3RouterPlugin as default.
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 05 Dec 2013 16:40:28 +0800
+
+neutron (2013.2-7) unstable; urgency=low
+
+  * neutron-l3-agent & neutron-vpn-agent now conflicts with each other.
+  * Fixed the cron.d files for lbass, dhcp and l3, so that they are on a single
+    line instead of broken lines with \ (this doesn't work otherwise).
+  * Fixes the sqlalchemy requirements.txt that restricted to SQLAlchemy
+    <= 0.7.99.
+  * Removes openvswitch-switch from depends since it's in pre-depends.
+
+  [ gustavo panizzo ]
+  * Watch file fixed. 
+  * Dependency on OpenvSwitch has been updated to 1.9, as it required by 
+    the plugin.
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 02 Dec 2013 22:39:46 +0800
+
+neutron (2013.2-6) unstable; urgency=low
+
+  * Now starts the openvswitch agent using the ml2 config if this is the plugin
+    which is in use in the core_plugin directive.
+  * Now sets the OVSHybridIptablesFirewallDriver as default firewall driver.
+  * Changes the rights of /var/lib/neutron/dhcp in Ubuntu, and depends:
+    dpkg-dev to check if we are in Ubuntu.
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 25 Nov 2013 17:21:56 +0000
+
+neutron (2013.2-5) unstable; urgency=low
+
+  * Added missing python-babel depends in python-neutron.
+  * Adds missing RabbitMQ debconf configuration code.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 25 Oct 2013 02:07:11 +0800
+
+neutron (2013.2-4) unstable; urgency=low
+
+  * neutron-*-agent packages are now breaking + replace only old versions of
+    Quantum packages: those who were not transition packages (Closes: #727235).
+  * Adds find . -type f -name "*.pyc" -delete in dh_clean.
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 24 Oct 2013 02:09:41 +0800
+
+neutron (2013.2-3) unstable; urgency=low
+
+  * Really fix db setup (Closes: #726719).
+
+ -- Thomas Goirand <zigo@debian.org>  Sat, 19 Oct 2013 14:33:15 +0800
+
+neutron (2013.2-2) unstable; urgency=low
+
+  * Adds upstream fix for db setup (Closes: #726719).
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 18 Oct 2013 22:24:05 +0800
+
+neutron (2013.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Uploading to unstable.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 18 Oct 2013 00:21:51 +0800
+
+neutron (2013.2~rc3-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 17 Oct 2013 15:25:13 +0800
+
+neutron (2013.2~rc2-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Thomas Goirand <zigo@debian.org>  Sun, 13 Oct 2013 00:34:40 +0800
+
+neutron (2013.2~rc1-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Thomas Goirand <zigo@debian.org>  Sun, 06 Oct 2013 14:15:06 +0800
+
+neutron (2013.2~b3-1) experimental; urgency=low
+
+  * Initial release. (Closes: #718037)
+
+ -- Thomas Goirand <zigo@debian.org>  Sat, 27 Jul 2013 13:11:22 +0800

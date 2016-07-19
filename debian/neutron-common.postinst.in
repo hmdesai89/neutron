@@ -1,0 +1,146 @@
+#!/bin/sh
+
+set -e
+
+N_CONF=/etc/neutron/neutron.conf
+OVS_CONF=/etc/neutron/plugins/openvswitch/ovs_neutron_plugin.ini
+
+#PKGOS-INCLUDE#
+
+neutron_core_plugin_class () {
+	case ${1} in
+	"OpenVSwitch")
+		NEUTRON_PLUGIN_CLASS=neutron.plugins.openvswitch.ovs_neutron_plugin.OVSNeutronPluginV2
+	;;
+	"ml2")
+		NEUTRON_PLUGIN_CLASS=neutron.plugins.ml2.plugin.Ml2Plugin
+	;;
+	"LinuxBridge")
+		NEUTRON_PLUGIN_CLASS=neutron.plugins.linuxbridge.lb_neutron_plugin.LinuxBridgePluginV2
+	;;
+	"RYU")
+		NEUTRON_PLUGIN_CLASS=neutron.plugins.ryu.ryu_neutron_plugin.RyuNeutronPluginV2
+	;;
+	"PLUMgrid")
+		NEUTRON_PLUGIN_CLASS=neutron.plugins.plumgrid.plumgrid_nos_plugin.plumgrid_plugin.NeutronPluginPLUMgridV2
+	;;
+	"Brocade")
+		NEUTRON_PLUGIN_CLASS=neutron.plugins.brocade.NeutronPlugin.BrocadePluginV2
+	;;
+	"Hyper-V")
+		NEUTRON_PLUGIN_CLASS=neutron.plugins.hyperv.hyperv_neutron_plugin.HyperVNeutronPlugin
+	;;
+	"BigSwitch")
+		NEUTRON_PLUGIN_CLASS=neutron.plugins.bigswitch.plugin.NeutronRestProxyV2
+	;;
+	"Cisco")
+		NEUTRON_PLUGIN_CLASS=neutron.plugins.cisco.network_plugin.PluginV2
+	;;
+	"Nicira")
+		NEUTRON_PLUGIN_CLASS=neutron.plugins.nicira.NeutronPlugin.NvpPluginV2
+	;;
+	"Midonet")
+		NEUTRON_PLUGIN_CLASS=neutron.plugins.midonet.plugin.MidonetPluginV2
+	;;
+	"Nec")
+		NEUTRON_PLUGIN_CLASS=neutron.plugins.nec.nec_plugin.NECPluginV2
+	;;
+	"MetaPlugin")
+		NEUTRON_PLUGIN_CLASS=neutron.plugins.metaplugin.meta_neutron_plugin.MetaPluginV2
+	;;
+	"Mellanox")
+		NEUTRON_PLUGIN_CLASS=neutron.plugins.mlnx.mlnx_plugin.MellanoxEswitchPlugin
+	;;
+	*)
+		NEUTRON_PLUGIN_CLASS=""
+	;;
+	esac
+}
+
+write_nova_admin_credentials () {
+        db_get neutron/nova_url
+	pkgos_inifile set ${N_CONF} DEFAULT nova_url ${RET}
+	db_get neutron/nova_region
+	pkgos_inifile set ${N_CONF} DEFAULT nova_region_name ${RET}
+	db_get neutron/nova_admin_tenant_id
+	pkgos_inifile set ${N_CONF} DEFAULT nova_admin_tenant_id ${RET}
+	db_get neutron/nova_admin_username
+	pkgos_inifile set ${N_CONF} DEFAULT nova_admin_username ${RET}
+	db_get neutron/nova_admin_password
+	pkgos_inifile set ${N_CONF} DEFAULT nova_admin_password ${RET}
+}
+
+if [ "$1" = "configure" ] || [ "$1" = "reconfigure" ] ; then
+	. /usr/share/debconf/confmodule
+
+	pkgos_var_user_group neutron
+	chmod 755 /var/lib/neutron
+
+	pkgos_write_new_conf neutron api-paste.ini
+	pkgos_write_new_conf neutron neutron.conf
+	chmod 0660 /etc/neutron/neutron.conf
+
+	# Sets the core_plugin directive according to the value in debconf
+	db_get neutron/plugin-select
+	NEUTRON_plugin=${RET}
+	if [ -n "${RET}" ] ; then
+		neutron_core_plugin_class ${NEUTRON_plugin}
+		pkgos_inifile set ${N_CONF} DEFAULT core_plugin ${NEUTRON_PLUGIN_CLASS}
+	fi
+
+	# Write the neutron RabbitMQ credentials
+	pkgos_rabbit_write_conf ${N_CONF} oslo_messaging_rabbit neutron
+
+	# Set the keystone_authtoken directive
+	pkgos_write_admin_creds ${N_CONF} keystone_authtoken neutron
+
+	# Set the sql_connection directive
+        pkgos_dbc_postinst --suite neutron ${N_CONF} database connection neutron $@
+
+	db_get neutron/configure_db
+	if [ "$RET" = "true" ] ; then
+		# Migrating to latest release of the db
+		neutron-db-manage --config-file /etc/neutron/neutron.conf upgrade head
+	fi
+
+	# Maintain the OVS config
+        if [ ! -e ${OVS_CONF} ] ; then
+                install -D -m 0640 -o neutron -g neutron /usr/share/neutron-common/ovs_neutron_plugin.ini ${OVS_CONF}
+        fi
+
+	if [ "${NEUTRON_plugin_path}" = "OpenVSwitch" ] ; then
+		db_get neutron/tenant_network_type
+		pkgos_inifile set ${OVS_CONF} OVS tenant_network_type "${RET}"
+
+		db_get neutron/enable_tunneling
+		pkgos_inifile set ${OVS_CONF} OVS enable_tunneling "${RET}"
+
+		db_get neutron/tunnel_id_ranges
+		pkgos_inifile set ${OVS_CONF} OVS tunnel_id_ranges "${RET}"
+
+		db_get neutron/local_ip
+		pkgos_inifile set ${OVS_CONF} OVS local_ip "${RET}"
+	fi
+
+	write_nova_admin_credentials
+	db_stop
+
+	chown -R neutron:adm /var/log/neutron/
+	chmod 0700 /etc/neutron
+	chmod 0750 /var/log/neutron/
+	chown root:root /etc/neutron/rootwrap.conf
+	chown root:root /etc/neutron/rootwrap.d
+	chmod 0755 /etc/neutron/rootwrap.d
+
+	# The /var/lib/neutron/dhcp needs to be readable from the nobody user.
+	chmod 755 /var/lib/neutron
+	mkdir -p /var/lib/neutron/dhcp
+	chown neutron:neutron /var/lib/neutron/dhcp
+	chmod 755 /var/lib/neutron/dhcp
+
+	if [ -f /etc/sudoers.d/neutron_sudoers ] ; then
+		chmod 0440 /etc/sudoers.d/neutron_sudoers
+	fi
+fi
+
+#DEBHELPER#

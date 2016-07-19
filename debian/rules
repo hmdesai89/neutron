@@ -1,0 +1,74 @@
+#!/usr/bin/make -f
+
+include /usr/share/openstack-pkg-tools/pkgos.make
+export OSLO_PACKAGE_VERSION=$(VERSION)
+
+PYTHONS:=$(shell pyversions -vr)
+
+%:
+	dh $@ --buildsystem=python_distutils --with python2,systemd
+
+override_dh_auto_install:
+	echo "Nothing to do!"
+#	dh_auto_install
+#	find . -type d -name tests | xargs rm -fr
+#	for i in neutron/db/migration/alembic_migrations/versions/*.py ; do \
+#		install -D -m 0664 $$i debian/tmp/usr/lib/python2.6/dist-packages/$$i ; \
+#		install -D -m 0664 $$i debian/tmp/usr/lib/python2.7/dist-packages/$$i ; \
+#	done
+
+override_dh_install:
+	set -e ; for pyvers in $(PYTHONS) ; do \
+		python$$pyvers setup.py install --install-layout=deb --root=$(CURDIR)/debian/neutron-common ; \
+		python$$pyvers setup.py install --install-layout=deb --root=$(CURDIR)/debian/tmp ; \
+		mkdir -p $(CURDIR)/debian/python-neutron/usr/lib/python$$pyvers/dist-packages ; \
+		cp -auxf neutron $(CURDIR)/debian/python-neutron/usr/lib/python$$pyvers/dist-packages ; \
+	done
+	dh_install -O--buildsystem=python_distutils --fail-missing -X/usr/etc -X/usr/bin
+	rm -rf $(CURDIR)/debian/neutron-common/usr/lib
+	rm -rf $(CURDIR)/debian/neutron-common/usr/bin/quantum*
+	rm -rf $(CURDIR)/debian/neutron-common/usr/etc
+
+	install -D -m 0640 etc/neutron/plugins/openvswitch/ovs_neutron_plugin.ini       $(CURDIR)/debian/neutron-common/usr/share/neutron-common/ovs_neutron_plugin.ini
+
+	install -D -m 0640 etc/metadata_agent.ini					$(CURDIR)/debian/neutron-metadata-agent/usr/share/neutron-metadata-agent/metadata_agent.ini
+	sed -i -e 's|^# nova_metadata_ip = 127.0.0.1|nova_metadata_ip = 127.0.0.1|'	$(CURDIR)/debian/neutron-metadata-agent/usr/share/neutron-metadata-agent/metadata_agent.ini
+
+	# Move the OVS config file, since we use debconf for it
+	rm $(CURDIR)/debian/neutron-common/etc/neutron/plugins/openvswitch/ovs_neutron_plugin.ini
+	install -D -m 0640 etc/neutron/plugins/openvswitch/ovs_neutron_plugin.ini $(CURDIR)/debian/neutron-common/usr/share/neutron-common/ovs_neutron_plugin.ini
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -f neutron/vcsversion.py
+	find . -type f -name "*.pyc" | xargs rm -fr
+	rm -rf build neutron.egg-info
+	rm -rf setuptools_git-*-py*.egg/
+	rm -f debian/neutron-common.config \
+		debian/neutron-common.postinst \
+		debian/neutron-server.config \
+		debian/neutron-server.postinst \
+		debian/neutron-dhcp-agent.postinst \
+		debian/neutron-metadata-agent.config \
+		debian/neutron-metadata-agent.postinst
+	rm -f debian/*.init debian/*.service debian/*.upstart
+
+override_dh_clean:
+	dh_clean
+	find . -type f -name "*.pyc" -delete
+
+override_dh_auto_test:
+ifeq (,$(findstring nocheck, $(DEB_BUILD_OPTIONS)))
+	PYTHONPATH=build/* ./run_tests.sh -N -P || true
+endif
+
+override_dh_auto_build:
+	dh_auto_build -O--buildsystem=python_distutils
+
+	/usr/share/openstack-pkg-tools/pkgos_insert_include pkgos_func neutron-common.config
+	/usr/share/openstack-pkg-tools/pkgos_insert_include pkgos_func neutron-common.postinst
+	/usr/share/openstack-pkg-tools/pkgos_insert_include pkgos_func neutron-server.config
+	/usr/share/openstack-pkg-tools/pkgos_insert_include pkgos_func neutron-server.postinst
+	/usr/share/openstack-pkg-tools/pkgos_insert_include pkgos_func neutron-dhcp-agent.postinst
+	/usr/share/openstack-pkg-tools/pkgos_insert_include pkgos_func neutron-metadata-agent.postinst
+	/usr/share/openstack-pkg-tools/pkgos_insert_include pkgos_func neutron-metadata-agent.config
