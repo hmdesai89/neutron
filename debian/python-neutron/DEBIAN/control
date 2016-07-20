@@ -5,7 +5,7 @@ Architecture: all
 Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
 Installed-Size: 8109
 Pre-Depends: dpkg
-Depends: alembic, conntrack, iproute2, ipset, python-eventlet, python-gflags, python-greenlet, python-httplib2, python-jinja2, python-jsonrpclib, python-keystoneclient, python-keystonemiddleware, python-mysqldb, python-netaddr, python-neutronclient, python-novaclient, python-oslo.concurrency, python-oslo.config, python-oslo.context, python-oslo.db, python-oslo.i18n, python-oslo.log, python-oslo.messaging, python-oslo.middleware, python-oslo.rootwrap, python-oslo.serialization, python-oslo.utils, python-paste, python-pastedeploy, python-pbr, python-psycopg2, python-pyudev, python-requests, python-retrying, python-routes, python-six, python-sqlalchemy, python-stevedore, python-webob, python:any (<< 2.8), python:any (>= 2.7.5-5~)
+Depends: alembic, conntrack, iproute2, ipset, python-eventlet, python-gflags, python-greenlet, python-httplib2, python-jinja2, python-jsonrpclib, python-keystoneclient, python-keystonemiddleware, python-mysqldb, python-netaddr, python-neutronclient, python-novaclient, python-oslo.concurrency, python-oslo.config, python-oslo.db, python-oslo.i18n, python-oslo.messaging, python-oslo.middleware, python-oslo.rootwrap, python-oslo.serialization, python-oslo.utils, python-paste, python-pastedeploy, python-pbr, python-psycopg2, python-pyudev, python-requests, python-retrying, python-routes, python-six, python-sqlalchemy, python-stevedore, python-webob, python:any (<< 2.8), python:any (>= 2.7.5-5~)
 Recommends: iputils-arping
 Breaks: neutron-plugin-linuxbridge-agent, neutron-plugin-openvswitch-agent
 Replaces: neutron-plugin-linuxbridge-agent, neutron-plugin-openvswitch-agent
