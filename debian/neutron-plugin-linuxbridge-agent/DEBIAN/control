@@ -1,0 +1,16 @@
+Package: neutron-plugin-linuxbridge-agent
+Source: neutron
+Version: 2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu2
+Architecture: all
+Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
+Installed-Size: 13
+Pre-Depends: dpkg
+Depends: neutron-linuxbridge-agent
+Section: oldlibs
+Priority: optional
+Homepage: http://neutron.openstack.org/
+Description: transitional dummy package for switching to Neutron Linuxbridge agent.
+ This is a transitional dummy package due to the move of the Linuxbridge agent from
+ core plugin to ML2 MechanismDriver.
+ Once you have upgraded, this package can safely be removed. This package provides a
+ transition path from neutron-plugin-linuxbridge-agent to neutron-linuxbridge-agent.

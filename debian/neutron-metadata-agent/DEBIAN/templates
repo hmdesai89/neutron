@@ -1,0 +1,123 @@
+
+Template: neutron-metadata/auth-host
+Type: string
+Default: 127.0.0.1
+Description: Auth server hostname:
+ Please specify the URL of your Neutron authentication server. Typically
+ this is also the URL of your OpenStack Identity Service (Keystone).
+Description-da.UTF-8: Værtsnavn for godkendelsesserver:
+ Angiv venligst adressen for din Neutron-godkendelsesserver. Typisk er dette også adressen for din OpenStack identity Service (Keystone).
+Description-de.UTF-8: Rechnername des Authentifizierungsservers:
+ Bitte geben Sie die URL Ihres Neutron-Authentifizierungsservers an. Typischerweise ist das gleichzeitig der Rechnername Ihres OpenStack-Identitätsdienstes (Keystone).
+Description-es.UTF-8: Nombre del equipo del servidor de autenticación:
+ Indique el nombre del equipo del servidor de autenticación. Suele ser el nombre del equipo del Servicio de Identidad de OpenStack (Keystone).
+Description-fr.UTF-8: Nom d'hôte du serveur d'authentification :
+ Veuillez indiquer l'adresse URL du serveur d'authentification Neutron. En général il s'agit du Service d'Identité d'OpenStack (Keystone).
+Description-it.UTF-8: Nome host del server di autenticazione:
+ Specificare l'URL del server di autenticazione Neutron. Tipicamente, è anche l'URL dell'OpenStack Identity Service (Keystone).
+Description-nl.UTF-8: Computernaam van de authenticatieserver:
+ Specificeer de URL van de Neutron-authenticatieserver. Meestal is dit ook de URL van de OpenStack-identiteitsdienst (Keystone).
+Description-pt.UTF-8: Nome de máquina do servidor de autenticação:
+ Por favor especifique o URL do seu servidor de autenticação Neutron. Tipicamente este é também o URL do seu Serviço de Identidade do OpenStack (Keystone).
+Description-ru.UTF-8: Имя узла сервера аутентификации:
+ Введите URL сервера аутентификации Neutron. Данный URL обычно совпадает с OpenStack Identity Service (Keystone).
+Description-sv.UTF-8: Värdnamn för identifieringsserver:
+ Ange URL till din Trove-identifieringsserver. Detta är vanligtvis samma URL som till din OpenStack-identitetstjänst (Keystone).
+
+Template: neutron-metadata/admin-tenant-name
+Type: string
+Default: admin
+Description: Auth server tenant name:
+Description-da.UTF-8: »Tenant«-navn for godkendelseserver:
+Description-de.UTF-8: Tenant-Name des Authentifizierungsservers:
+Description-es.UTF-8: Nombre del inquilino («tenant») del servidor de autenticación:
+Description-fr.UTF-8: Nom d'espace client du serveur d'authentification :
+Description-it.UTF-8: Nome del «locatario» («tenant») per il server di autenticazione:
+Description-nl.UTF-8: Naam van de clientruimte (tenant) op de authenticatieserver:
+Description-pt.UTF-8: Nome "tenant" do servidor de autenticação:
+Description-ru.UTF-8: Членское имя сервера аутентификации:
+Description-sv.UTF-8: Namn för "tenant" (administratör) på identifieringsservern:
+
+Template: neutron-metadata/admin-user
+Type: string
+Default: admin
+Description: Auth server username:
+Description-da.UTF-8: Brugernavn for godkendelsesserver:
+Description-de.UTF-8: Benutzername des Authentifizierungsservers:
+Description-es.UTF-8: Nombre de usuario del servidor de autenticación:
+Description-fr.UTF-8: Identifiant sur le serveur d'authentification :
+Description-it.UTF-8: Nome utente per il server di autenticazione:
+Description-nl.UTF-8: Gebruikersnaam op de authenticatieserver:
+Description-pt.UTF-8: Nome de utilizador do servidor de autenticação:
+Description-ru.UTF-8: Имя пользователя сервера аутентификации:
+Description-sv.UTF-8: Användarnamn på identifieringsservern:
+
+Template: neutron-metadata/admin-password
+Type: password
+Description: Auth server password:
+Description-da.UTF-8: Adgangskode for godkendelsesserver:
+Description-de.UTF-8: Passwort des Authentifizierungsservers:
+Description-es.UTF-8: Contraseña del servidor de autenticación:
+Description-fr.UTF-8: Mot de passe sur le serveur d'authentification :
+Description-it.UTF-8: Password per il server di autenticazione:
+Description-nl.UTF-8: Wachtwoord op de authenticatieserver:
+Description-pt.UTF-8: Palavra passe do servidor de autenticação:
+Description-ru.UTF-8: Пароль сервера аутентификации:
+Description-sv.UTF-8: Lösenord på identifieringsservern:
+
+Template: neutron-metadata/region-name
+Type: string
+Default: regionOne
+Description: Name of the region to be used by the metadata server:
+ Openstack can be used using availability zones, with each region representing
+ a location. Please enter the zone that the metadata server should use.
+Description-da.UTF-8: Regionsnavn der skal bruges af metadataserveren:
+ OpenStack kan anvendes af tilgængeligehedszoner. Hver region repræsenterer en plads. Indtast venligst zonen som metadataserveren skal bruge.
+Description-de.UTF-8: Name der vom Metadaten-Server verwendeten Region:
+ OpenStack kann mittels Verfügbarkeitszonen verwendet werden, bei der jede Region einen Ort repräsentiert. Bitte geben Sie die Zone an, die der Metadaten-Server benutzt.
+Description-es.UTF-8: Nombre de la región que debe utilizar el servidor de metadatos:
+ OpenStack puede utilizarse con zonas de disponibilidad, donde cada región representa una ubicación. Introduzca la zona que desea que utilice el servidor de metadatos.
+Description-fr.UTF-8: Nom de la région à utiliser par le serveur de métadonnées :
+ OpenStack gère l'utilisation de zones disponibles, avec chaque région représentant un lieu. Veuillez entrer la zone que le serveur de métadonnées devra utiliser.
+Description-it.UTF-8: Nome della regione che deve essere usata dal server di metadati:
+ OpenStack può essere usato utilizzando le zone di disponibilità, con ogni regione che rappresenta una posizione. Inserire la zona che deve essere usata dal server di metadati.
+Description-nl.UTF-8: Naam van de door de metadata-server te gebruiken regio:
+ Openstack kent het gebruik van zones van beschikbaarheid, waarbij elke regio een locatie vertegenwoordigt. Geef aan welke zone de metadataserver moet gebruiken.
+Description-pt.UTF-8: Nome da região a ser usada pelo servidor de meta-dados:
+ O Openstack pode ser usado utilizando zonas de disponibilidade, com cada região a representar um local. Por favor indique a zona que o servidor de meta-dados deverá usar.
+Description-ru.UTF-8: Название области, которая будет использована сервером метаданных:
+ Openstack может использоваться с разделением на зоны доступности, где каждая область представляет определённое расположение. Введите зону, которую должен использовать сервер метаданных.
+Description-sv.UTF-8: Regionnamn:
+ OpenStack kan användas med tillgänglighetszoner. Varje region representerar en plats. Ange zonen som ska användas när ändpunkten registreras.
+
+Template: neutron-metadata/metadata_secret
+Type: password
+Description: Metadata proxy shared secret:
+ VM instances using Neutron to handle networking retrieve their metadata
+ through the Neutron metadata agent, which serves as a proxy to the Nova
+ metadata REST API server.
+ .
+ Please enter the password that should be used to protect communications
+ between the Neutron metadata proxy agent and the Nova metadata server. The
+ same shared password should be used when setting up the nova-common
+ package.
+Description-da.UTF-8: Delt hemmelighed for metadataproxy:
+ VM-instanser, der bruger Neutron til at håndtere netværk, henter deres metadata via Neutrons metadataagent, som fungerer som en proxy til Nova metadata REST API-serveren.
+ .
+ Indtast venligst adgangskoden som skal bruges til at beskytte kommunikation mellem Neutron metadata proxy-agenten og Nova metadata-serveren. Den samme delte adgangskode skal bruges når pakken nova-common sættes op.
+Description-es.UTF-8: Contraseña compartida para el proxy de metadatos:
+ Las instancias de máquinas virtuales que utilizan Neutron para gestionar la red obtienen los metadatos a través del agente de metadatos de Neutron que funciona como un proxy para el servidor de metadatos REST API de Nova.
+ .
+ Introduzca la contraseña que se debe utilizar para proteger las comunicaciones entre el agente proxy de metadatos de Neutron y el servidor de metadatos de Nova. Debe utilizar esta misma contraseña compartida cuando configure el paquete nova-common.
+Description-fr.UTF-8: Secret partagé pour le relais de métadonnées (« metadata proxy ») :
+ Les machines virtuelles utilisant Neutron pour gérer leur connexion réseau récupèrent leurs métadonnées grâce à l'agent de métadonnées de Neutron, qui agit comme un relais pour le serveur de métadonnées de l'API REST Nova.
+ .
+ Veuillez indiquer le mot de passe à utiliser pour protéger les communications entre l'agent relais de métadonnées de Neutron et le serveur de métadonnées de Nova. Le même mot de passe partagé doit être utilisé lors de l'installation du paquet nova-common.
+Description-nl.UTF-8: Met de proxy voor metagegevens gedeeld geheim:
+ VM-realisaties die Neutron gebruiken om hun netwerkomgeving te beheren, halen hun metagegevens op via de agent voor metagegevens van Neutron die dienst doet als een proxy voor de REST API server voor metagegevens van Nova.
+ .
+ Gelieve het wachtwoord in te voeren dat gebruikt moet worden om de communicatie te beveiligen tussen de proxy-agent voor metagegevens van Neutron en de server voor metagegevens van Nova. Hetzelfde gedeelde wachtwoord moet gebruikt worden bij het instellen van het pakket nova-common.
+Description-pt.UTF-8: Segredo partilhado do proxy de meta-dados:
+ As instâncias VM que usam o Neutron para lidar com a rede obtêm os seus meta-dados através do agente de meta-dados do Neutron, o qual server como um proxy para o servidor REST API de meta-dados do Nova.
+ .
+ Por favor indique a palavra passe que deverá ser usada para proteger a comunicação entre o agente proxy de meta-dados do Neutron e o servidor de meta-dados do Nova. A mesma palavra passe partilhada deve ser usada quando configurar o pacote nova-common.

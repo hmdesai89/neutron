@@ -4,7 +4,7 @@ Version: 2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu2
 Architecture: all
 Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
 Installed-Size: 108
-Pre-Depends: dpkg (>= 1.15.6~)
+Pre-Depends: dpkg
 Depends: adduser, debconf, lsb-base (>= 4.1+Debian11ubuntu7), neutron-common, debconf (>= 0.5) | debconf-2.0, init-system-helpers (>= 1.18~)
 Section: net
 Priority: optional

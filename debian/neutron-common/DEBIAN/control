@@ -4,10 +4,10 @@ Version: 2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu2
 Architecture: all
 Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
 Installed-Size: 349
-Pre-Depends: dpkg (>= 1.15.6~)
-Depends: adduser, dbconfig-common, debconf, dpkg-dev, python-mysqldb, python-neutron, python-pyparsing (>= 1.5.7), python-sqlalchemy, sqlite3, debconf (>= 0.5) | debconf-2.0, python2.7:any, python:any
-Breaks: neutron-plugin-linuxbridge-agent (<< 2015.1~b3-1), neutron-plugin-openvswitch-agent (<< 2015.1~b3-1)
-Replaces: neutron-plugin-linuxbridge-agent (<< 2015.1~b3-1), neutron-plugin-openvswitch-agent (<< 2015.1~b3-1)
+Pre-Depends: dpkg
+Depends: adduser, dbconfig-common, debconf, dpkg-dev, python-mysqldb, python-neutron, python-pyparsing, python-sqlalchemy, sqlite3, debconf (>= 0.5) | debconf-2.0, python2.7:any, python:any
+Breaks: neutron-plugin-linuxbridge-agent, neutron-plugin-openvswitch-agent
+Replaces: neutron-plugin-linuxbridge-agent, neutron-plugin-openvswitch-agent
 Provides: neutron-plugin, neutron-plugin-bigswitch, neutron-plugin-brocade, neutron-plugin-cisco, neutron-plugin-hyperv, neutron-plugin-linuxbridge, neutron-plugin-metaplugin, neutron-plugin-ml2, neutron-plugin-nec, neutron-plugin-nicira, neutron-plugin-openvswitch, neutron-plugin-plumgrid, neutron-plugin-ryu, python-argparse
 Section: net
 Priority: optional

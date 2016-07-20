@@ -98,7 +98,7 @@ Depends: alembic ,
          python-stevedore ,
          python-webob,
          ${misc:Depends},
-         ${python:Depends},
+         ${python:Depends}
 Recommends: iputils-arping
 Replaces: neutron-plugin-linuxbridge-agent ,
           neutron-plugin-openvswitch-agent 

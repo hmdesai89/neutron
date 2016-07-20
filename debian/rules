@@ -38,6 +38,9 @@ override_dh_install:
 	rm $(CURDIR)/debian/neutron-common/etc/neutron/plugins/openvswitch/ovs_neutron_plugin.ini
 	install -D -m 0640 etc/neutron/plugins/openvswitch/ovs_neutron_plugin.ini $(CURDIR)/debian/neutron-common/usr/share/neutron-common/ovs_neutron_plugin.ini
 
+override_dh_python2:
+	dh_python2 --no-guessing-deps
+
 override_dh_auto_clean:
 	dh_auto_clean
 	rm -f neutron/vcsversion.py

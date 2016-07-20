@@ -1,3 +1,12 @@
 neutron-common_2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu2_all.deb net optional
+neutron-dhcp-agent_2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu2_all.deb net optional
+neutron-l3-agent_2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu2_all.deb net optional
+neutron-linuxbridge-agent_2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu2_all.deb net optional
+neutron-metadata-agent_2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu2_all.deb net optional
+neutron-metering-agent_2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu2_all.deb net optional
+neutron-openvswitch-agent_2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu2_all.deb net optional
+neutron-plugin-linuxbridge-agent_2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu2_all.deb oldlibs optional
+neutron-plugin-nec-agent_2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu2_all.deb net optional
+neutron-plugin-openvswitch-agent_2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu2_all.deb oldlibs optional
 neutron-server_2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu2_all.deb net optional
 python-neutron_2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu2_all.deb python optional

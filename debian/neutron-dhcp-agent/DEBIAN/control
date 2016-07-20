@@ -1,0 +1,18 @@
+Package: neutron-dhcp-agent
+Source: neutron
+Version: 2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu2
+Architecture: all
+Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
+Installed-Size: 67
+Pre-Depends: dpkg
+Depends: adduser, dnsmasq-base, dnsmasq-utils, neutron-common, sudo, init-system-helpers (>= 1.18~), lsb-base (>= 4.1+Debian11ubuntu7)
+Section: net
+Priority: optional
+Homepage: http://neutron.openstack.org/
+Description: OpenStack virtual network service - DHCP agent
+ Neutron provides an API to dynamically request and configure virtual networks.
+ These networks connect "interfaces" from other OpenStack services (such as
+ vNICs from Nova VMs). The Neutron API supports extensions to provide advanced
+ network capabilities, including QoS, ACLs, and network monitoring.
+ .
+ This package provides the DHCP agent.

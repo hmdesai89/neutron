@@ -1,5 +1,5 @@
 python:Provides=python2.7-neutron
+python:Depends=python:any (<< 2.8), python:any (>= 2.7.5-5~), python:any (>= 2.7~)
 python:Versions=2.7
-python:Depends=alembic, python-eventlet, python-greenlet, python-httplib2, python-jinja2, python-jsonrpclib, python-keystoneclient, python-keystonemiddleware, python-netaddr, python-neutronclient, python-novaclient, python-paste, python-pastedeploy, python-pbr, python-requests, python-retrying, python-routes, python-six (>= 1.9.0), python-sqlalchemy (>= 1.0~), python-sqlalchemy (<< 1.1), python-stevedore, python-webob, python:any (<< 2.8), python:any (>= 2.7.5-5~), python:any (>= 2.7~)
 misc:Depends=
 misc:Pre-Depends=
