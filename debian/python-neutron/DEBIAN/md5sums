@@ -2,7 +2,7 @@
 68b329da9893e34099c7d8ad5cb9c940  usr/lib/python2.7/dist-packages/neutron-2015.1.0+2015.6.24.git61.bdf194a0e1.egg-info/dependency_links.txt
 407661ddc68ae8f14293b525962ffd1d  usr/lib/python2.7/dist-packages/neutron-2015.1.0+2015.6.24.git61.bdf194a0e1.egg-info/entry_points.txt
 68b329da9893e34099c7d8ad5cb9c940  usr/lib/python2.7/dist-packages/neutron-2015.1.0+2015.6.24.git61.bdf194a0e1.egg-info/not-zip-safe
-88ac49f622aa92fab3aeae94e2b73659  usr/lib/python2.7/dist-packages/neutron-2015.1.0+2015.6.24.git61.bdf194a0e1.egg-info/pbr.json
+b766c3074bbf50149194df2bc92519c9  usr/lib/python2.7/dist-packages/neutron-2015.1.0+2015.6.24.git61.bdf194a0e1.egg-info/pbr.json
 e8e1c88b2a3a03d80124a64016339c82  usr/lib/python2.7/dist-packages/neutron-2015.1.0+2015.6.24.git61.bdf194a0e1.egg-info/requires.txt
 473b371f5d46c0a8f0fba3acf1bceea4  usr/lib/python2.7/dist-packages/neutron-2015.1.0+2015.6.24.git61.bdf194a0e1.egg-info/top_level.txt
 e01c8de771169f2143c1e29ec9f11e36  usr/lib/python2.7/dist-packages/neutron/__init__.py

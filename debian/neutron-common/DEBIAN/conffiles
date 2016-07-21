@@ -1,5 +1,8 @@
 /etc/logrotate.d/neutron-common
+/etc/neutron/api-paste.ini
 /etc/neutron/dnsmasq-neutron.conf
+/etc/neutron/neutron.conf
+/etc/neutron/plugin_guess_func
 /etc/neutron/plugins/bigswitch/restproxy.ini
 /etc/neutron/plugins/bigswitch/ssl/ca_certs/README
 /etc/neutron/plugins/bigswitch/ssl/host_certs/README

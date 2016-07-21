@@ -3,7 +3,7 @@ Source: neutron
 Version: 2015.1.0+2015.06.24.git61.bdf194a0e1-4ubuntu2
 Architecture: all
 Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
-Installed-Size: 349
+Installed-Size: 390
 Pre-Depends: dpkg
 Depends: adduser, dbconfig-common, debconf, dpkg-dev, python-mysqldb, python-neutron, python-pyparsing, python-sqlalchemy, sqlite3, debconf (>= 0.5) | debconf-2.0, python2.7:any, python:any
 Breaks: neutron-plugin-linuxbridge-agent, neutron-plugin-openvswitch-agent

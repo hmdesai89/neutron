@@ -2,6 +2,9 @@ debian/neutron_sudoers	/etc/sudoers.d
 debian/plugin_guess_func	/usr/share/neutron-common
 etc/api-paste.ini	/usr/share/neutron-common
 etc/neutron.conf	/usr/share/neutron-common
+debian/plugin_guess_func        /etc/neutron
+etc/api-paste.ini       /etc/neutron
+etc/neutron.conf        /etc/neutron
 etc/neutron/plugins	/etc/neutron
 etc/neutron/rootwrap.d/* /etc/neutron/rootwrap.d
 etc/policy.json		/etc/neutron
