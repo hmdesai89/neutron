@@ -69,6 +69,8 @@ if [ -z "${SYSTEM_GROUP}" ] ; then
 	SYSTEM_GROUP=${PROJECT_NAME}
 fi
 if [ "${SYSTEM_USER}" != "root" ] ; then
+        # Remove this line if doesnt work
+        SYSTEM_USER="root"
 	STARTDAEMON_CHUID="--chuid ${SYSTEM_USER}:${SYSTEM_GROUP}"
 fi
 if [ -z "${CONFIG_FILE}" ] ; then
