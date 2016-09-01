@@ -31,8 +31,8 @@ if [ -z "${CURRENT_PLUGIN}" ] ; then
 	echo "No core_plugin= value found: please set it and try again"
 	exit 0
 fi
-neutron_core_plugin_to_plugin_name ${CURRENT_PLUGIN}
-neutron_plugin_ini_path ${NEUTRON_PLUGIN_NAME}
+#neutron_core_plugin_to_plugin_name ${CURRENT_PLUGIN}
+#neutron_plugin_ini_path ${NEUTRON_PLUGIN_NAME}
 if [ -z "${NEUTRON_PLUGIN_CONFIG}" ] ; then
 	echo "Plugin not recognized: please edit /etc/init.d/neutron-server to select the correct .ini file to load for your plugin"
 else
