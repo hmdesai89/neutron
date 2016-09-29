@@ -1,4 +1,0 @@
-1adc733bc7dbe2de3e24c155de7d60c3  lib/systemd/system/neutron-metadata-agent.service
-4fe0d4e5694adb14f2a37c6cc02c7189  usr/share/doc/neutron-metadata-agent/changelog.Debian.gz
-af12d31d737bf9adb9cd1d639ab32975  usr/share/doc/neutron-metadata-agent/copyright
-f7e7f15ce6efa1e2847a7fe207fd3703  usr/share/neutron-metadata-agent/metadata_agent.ini

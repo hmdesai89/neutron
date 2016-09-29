@@ -1,5 +1,0 @@
-3533fed976a3a71ef715ced71013e759  lib/systemd/system/neutron-server.service
-4fe0d4e5694adb14f2a37c6cc02c7189  usr/share/doc/neutron-server/changelog.Debian.gz
-af12d31d737bf9adb9cd1d639ab32975  usr/share/doc/neutron-server/copyright
-7693017baeb1235725392fba0eb22bf2  usr/share/man/man8/neutron-rootwrap.8.gz
-f586bd2cf7d44b2790ac49c04999b97d  usr/share/man/man8/neutron-server.8.gz
