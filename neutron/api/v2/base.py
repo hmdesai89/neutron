@@ -679,6 +679,13 @@ class Controller(object):
 
         network_owner = network['tenant_id']
 
+	# put some other checks here as well
+	# as of now creating a log entry and returning
+	LOG.info("Harsh Permits to create a cross account")
+	return
+
+
+
         if network_owner != resource_item['tenant_id']:
             msg = _("Tenant %(tenant_id)s not allowed to "
                     "create %(resource)s on this network")
