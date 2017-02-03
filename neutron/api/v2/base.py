@@ -32,6 +32,8 @@ from neutron.i18n import _LE, _LI
 from neutron.openstack.common import policy as common_policy
 from neutron import policy
 from neutron import quota
+from neutron.ec2db import api as db_api
+from neutron.ec2db import utils as ec2utils
 
 
 LOG = logging.getLogger(__name__)
@@ -316,7 +318,38 @@ class Controller(object):
         parent_id = kwargs.get(self._parent_id_name)
         # Ensure policy engine is initialized
         policy.init()
-        return self._items(request, True, parent_id)
+
+
+        def list_paas_ports(dummy_request):
+	    ''' We will receive a neutron request for
+	    listing extra ports which we generally dont
+	    list if an account is not a PAAS account
+	    Assumption :  account is already verified for PAAS
+	    '''
+	    pnis = ec2utils.list_pnis(dummy_request.context )
+            if pnis :
+                LOG.debug(pnis)
+	        return [ self.show(dummy_request,pni['os_id'], **kwargs)['port'] for pni in pnis]
+
+
+        if self._resource in ('port') and ec2utils.is_paas(request.context,None) :
+            LOG.debug("List port request for paas port")
+            # Creatng a dummy request to get
+            # get values of cross account port
+            dummy_request = request
+            orig_items = self._items(dummy_request, True, parent_id)['ports']
+            dummy_request.context.is_admin = True
+	    items = list_paas_ports(dummy_request)
+            if items :
+                orig_items = items + orig_items
+            LOG.debug (orig_items)
+            return { 'ports' : orig_items}
+
+
+
+
+        return  self._items(request, True, parent_id)
+
 
     def show(self, request, id, **kwargs):
         """Returns detailed information about the requested entity."""
@@ -329,11 +362,16 @@ class Controller(object):
             parent_id = kwargs.get(self._parent_id_name)
             # Ensure policy engine is initialized
             policy.init()
+
+            do_authz = True
+            if ( self._resource in ('port') and 
+                  request.context.is_admin or ec2utils.is_paas(request.context, None)) :
+                do_authz = False
             return {self._resource:
                     self._view(request.context,
                                self._item(request,
                                           id,
-                                          do_authz=True,
+                                          do_authz=do_authz,
                                           field_list=field_list,
                                           parent_id=parent_id),
                                fields_to_strip=added_fields)}
@@ -435,6 +473,11 @@ class Controller(object):
             self._send_dhcp_notification(request.context,
                                          create_result,
                                          notifier_method)
+            if self._resource in ('port') and ec2utils.is_paas(request.context,None) :
+                LOG.debug("need to add pni entry in ec2db")
+                LOG.debug(create_result)
+		ec2utils.create_pni(request.context, create_result['port']['id'])
+
             return create_result
 
         kwargs = {self._parent_id_name: parent_id} if parent_id else {}
@@ -481,10 +524,16 @@ class Controller(object):
                            obj,
                            pluralized=self._collection)
         except common_policy.PolicyNotAuthorized:
-            # To avoid giving away information, pretend that it
-            # doesn't exist
-            msg = _('The resource could not be found.')
-            raise webob.exc.HTTPNotFound(msg)
+            if self._resource in ('port') and ec2utils.is_paas(request.context,None) :
+                LOG.info("PAAS account Permited to delete a cross account")
+                ##TO-DO(Harsh): Remove entry from ec2 db
+		LOG.debug(id)
+		ec2utils.delete_pni(request.context, id)
+            else :
+                # To avoid giving away information, pretend that it
+                # doesn't exist
+                msg = _('The resource could not be found.')
+                raise webob.exc.HTTPNotFound(msg)
 
         obj_deleter = getattr(self._plugin, action)
         obj_deleter(request.context, id, **kwargs)
@@ -538,11 +587,15 @@ class Controller(object):
                            pluralized=self._collection)
         except common_policy.PolicyNotAuthorized:
             with excutils.save_and_reraise_exception() as ctxt:
-                # If a tenant is modifying it's own object, it's safe to return
-                # a 403. Otherwise, pretend that it doesn't exist to avoid
-                # giving away information.
-                if request.context.tenant_id != orig_obj['tenant_id']:
-                    ctxt.reraise = False
+                if ec2utils.is_paas(request.context,None) :
+                    LOG.info("PAAS account Permited to update a cross account")
+                    request.context.is_admin = True
+                else :
+                    # If a tenant is modifying it's own object, it's safe to return
+                    # a 403. Otherwise, pretend that it doesn't exist to avoid
+                    # giving away information.
+                    if request.context.tenant_id != orig_obj['tenant_id']:
+                        ctxt.reraise = False
             msg = _('The resource could not be found.')
             raise webob.exc.HTTPNotFound(msg)
 
@@ -679,7 +732,16 @@ class Controller(object):
 
         network_owner = network['tenant_id']
 
+
         if network_owner != resource_item['tenant_id']:
+            if ec2utils.is_paas(request.context,resource_item['tenant_id']) :
+                LOG.info("PAAS account Permited to create a cross account")
+                resource_item['tenant_id'] = network_owner
+                request.context.is_admin = True
+                ### TO_DO(Harsh): Make sure you add an entry in ec2db
+                ### as well
+                return
+
             msg = _("Tenant %(tenant_id)s not allowed to "
                     "create %(resource)s on this network")
             raise webob.exc.HTTPForbidden(msg % {
@@ -697,3 +759,4 @@ def create_resource(collection, resource, plugin, params, allow_bulk=False,
                             allow_sorting=allow_sorting)
 
     return wsgi_resource.Resource(controller, FAULT_MAP)
+
