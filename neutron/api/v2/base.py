@@ -329,7 +329,7 @@ class Controller(object):
 	    pnis = ec2utils.list_pnis(dummy_request.context )
             if pnis :
                 LOG.debug(pnis)
-	        return [ self.show(dummy_request,pni['os_id'], **kwargs)['port'] for pni in pnis]
+	        return [ self.show(dummy_request,pni['os_data'], **kwargs)['port'] for pni in pnis]
 
 
         if self._resource in ('port') and ec2utils.is_paas(request.context,None) :
