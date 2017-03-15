@@ -35,8 +35,8 @@ def delete_pni(context, port_id) :
     pnis = db_api.get_items(context, 'pni')
     pni_id = ''    
     for pni in pnis :
-        if 'os_data' == port_id :
-            pni_id = pni[0]
+        if pni['os_data'] == port_id :
+            pni_id = pni['id']
             break
     LOG.debug(pni_id)
     db_api.delete_item(context, pni_id)
