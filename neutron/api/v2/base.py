@@ -354,9 +354,9 @@ class Controller(object):
             LOG.debug (orig_items)
             return { 'ports' : orig_items}
 
-        if self._resource in ('network') and ec2utils.is_paas(request.context,None) :
+        if self._resource in ('network','security_group') and ec2utils.is_paas(request.context,None) :
             request.context.is_admin = True
-            if 'id' in request.GET:
+            if 'id' in request.GET or 'tenant_id' in request.GET:
                 LOG.debug('Specific network request')
                 return self._items(request, False, parent_id)
 
@@ -487,10 +487,10 @@ class Controller(object):
             self._send_dhcp_notification(request.context,
                                          create_result,
                                          notifier_method)
-            if self._resource in ('port') and ec2utils.is_paas(request.context,None) and request.context.is_admin :
-                LOG.debug("need to add pni entry in ec2db")
-                LOG.debug(create_result)
-		ec2utils.create_pni(request.context, create_result['port']['id'])
+            #if self._resource in ('port') and ec2utils.is_paas(request.context,None) and request.context.is_admin :
+            #    LOG.debug("need to add pni entry in ec2db")
+            #    LOG.debug(create_result)
+	    #	ec2utils.create_pni(request.context, create_result['port']['id'])
 
             return create_result
 
@@ -540,9 +540,8 @@ class Controller(object):
         except common_policy.PolicyNotAuthorized:
             if self._resource in ('port') and ec2utils.is_paas(request.context,None) :
                 LOG.info("PAAS account Permited to delete a cross account")
-                ##TO-DO(Harsh): Remove entry from ec2 db
 		LOG.debug(id)
-		ec2utils.delete_pni(request.context, id)
+		#ec2utils.delete_pni(request.context, id)
             else :
                 # To avoid giving away information, pretend that it
                 # doesn't exist
