@@ -332,7 +332,7 @@ class Controller(object):
 	        return [ self.show(dummy_request,pni['os_data'], **kwargs)['port'] for pni in pnis]
 
 
-        if self._resource in ('port') and ec2utils.is_paas(request.context,None) :
+        if self._resource in ('port') and request.context.paas_account : # ec2utils.is_paas(request.context,None) :
             LOG.debug("List port request for paas port")
             # Creatng a dummy request to get
             # get values of cross account port
@@ -354,7 +354,7 @@ class Controller(object):
             LOG.debug (orig_items)
             return { 'ports' : orig_items}
 
-        if self._resource in ('network','security_group') and ec2utils.is_paas(request.context,None) :
+        if self._resource in ('network','security_group') and request.context.paas_account : #ec2utils.is_paas(request.context,None) :
             request.context.is_admin = True
             if 'id' in request.GET or 'tenant_id' in request.GET:
                 LOG.debug('Specific network request')
@@ -379,7 +379,7 @@ class Controller(object):
 
             do_authz = True
             if ( self._resource in ('port') and 
-                  request.context.is_admin or ec2utils.is_paas(request.context, None)) :
+                  request.context.is_admin or request.context.paas_account) : #ec2utils.is_paas(request.context, None)) :
                 do_authz = False
             return {self._resource:
                     self._view(request.context,
@@ -538,7 +538,7 @@ class Controller(object):
                            obj,
                            pluralized=self._collection)
         except common_policy.PolicyNotAuthorized:
-            if self._resource in ('port') and ec2utils.is_paas(request.context,None) :
+            if self._resource in ('port') and request.context.paas_account : #ec2utils.is_paas(request.context,None) :
                 LOG.info("PAAS account Permited to delete a cross account")
 		LOG.debug(id)
 		#ec2utils.delete_pni(request.context, id)
@@ -599,7 +599,7 @@ class Controller(object):
                            orig_obj,
                            pluralized=self._collection)
         except common_policy.PolicyNotAuthorized:
-            if ec2utils.is_paas(request.context,None) :
+            if request.context.paas_account : #ec2utils.is_paas(request.context,None) :
                 LOG.info("PAAS account Permited to update a cross account")
                 request.context.is_admin = True
             else :
@@ -747,7 +747,7 @@ class Controller(object):
 
 
         if network_owner != resource_item['tenant_id']:
-            if ec2utils.is_paas(request.context,resource_item['tenant_id']) :
+            if request.context.paas_account : #ec2utils.is_paas(request.context,resource_item['tenant_id']) :
                 LOG.info("PAAS account Permited to create a cross account")
                 resource_item['tenant_id'] = network_owner
                 request.context.is_admin = True

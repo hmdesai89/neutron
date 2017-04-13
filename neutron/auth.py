@@ -21,6 +21,10 @@ import webob.exc
 from neutron import context
 from neutron import wsgi
 
+
+## just for TESTING
+from neutron.ec2db import utils as ec2utils
+
 LOG = logging.getLogger(__name__)
 
 
@@ -37,6 +41,9 @@ class NeutronKeystoneContext(wsgi.Middleware):
 
         # Determine the tenant
         tenant_id = req.headers.get('X_PROJECT_ID')
+
+        # Determine for PAAS account
+        paas_account = req.headers.get('X_PAAS_ACCOUNT')
 
         # Suck out the roles
         roles = [r.strip() for r in req.headers.get('X_ROLES', '').split(',')]
@@ -55,7 +62,11 @@ class NeutronKeystoneContext(wsgi.Middleware):
         # Create a context with the authentication data
         ctx = context.Context(user_id, tenant_id, roles=roles,
                               user_name=user_name, tenant_name=tenant_name,
-                              request_id=req_id, auth_token=auth_token)
+                              request_id=req_id, auth_token=auth_token, paas_account = paas_account)
+
+
+        ## JUST for testing delete once done:
+        ctxt.paas_account = ec2utils.is_paas(ctxt, None)
 
         # Inject the context...
         req.environ['neutron.context'] = ctx

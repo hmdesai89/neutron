@@ -38,7 +38,7 @@ class ContextBase(oslo_context.RequestContext):
     def __init__(self, user_id, tenant_id, is_admin=None, read_deleted="no",
                  roles=None, timestamp=None, load_admin_roles=True,
                  request_id=None, tenant_name=None, user_name=None,
-                 overwrite=True, auth_token=None, **kwargs):
+                 overwrite=True, auth_token=None, paas_account = False, **kwargs):
         """Object initialization.
 
         :param read_deleted: 'no' indicates deleted records are hidden, 'yes'
@@ -73,6 +73,9 @@ class ContextBase(oslo_context.RequestContext):
             admin_roles = policy.get_admin_roles()
             if admin_roles:
                 self.roles = list(set(self.roles) | set(admin_roles))
+
+        if paas_account == 'true':
+            self.paas_account = True
 
     @property
     def project_id(self):
@@ -124,6 +127,7 @@ class ContextBase(oslo_context.RequestContext):
                 'project_name': self.tenant_name,
                 'user_name': self.user_name,
                 'auth_token': self.auth_token,
+                'paas_account': self.paas_account,
                 }
 
     @classmethod
