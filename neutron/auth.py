@@ -66,7 +66,7 @@ class NeutronKeystoneContext(wsgi.Middleware):
 
 
         ## JUST for testing delete once done:
-        ctxt.paas_account = ec2utils.is_paas(ctxt, None)
+        ctx.paas_account = ec2utils.is_paas(ctx, None)
 
         # Inject the context...
         req.environ['neutron.context'] = ctx

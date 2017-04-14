@@ -38,7 +38,7 @@ class ContextBase(oslo_context.RequestContext):
     def __init__(self, user_id, tenant_id, is_admin=None, read_deleted="no",
                  roles=None, timestamp=None, load_admin_roles=True,
                  request_id=None, tenant_name=None, user_name=None,
-                 overwrite=True, auth_token=None, paas_account = False, **kwargs):
+                 overwrite=True, auth_token=None, paas_account = None, **kwargs):
         """Object initialization.
 
         :param read_deleted: 'no' indicates deleted records are hidden, 'yes'
@@ -59,6 +59,12 @@ class ContextBase(oslo_context.RequestContext):
         self.user_name = user_name
         self.tenant_name = tenant_name
 
+        if paas_account == 'true':
+            self.paas_account = True
+        else:
+            self.paas_account = False
+
+
         self.read_deleted = read_deleted
         if not timestamp:
             timestamp = datetime.datetime.utcnow()
@@ -74,8 +80,6 @@ class ContextBase(oslo_context.RequestContext):
             if admin_roles:
                 self.roles = list(set(self.roles) | set(admin_roles))
 
-        if paas_account == 'true':
-            self.paas_account = True
 
     @property
     def project_id(self):
